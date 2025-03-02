@@ -1,0 +1,34 @@
+import React from 'react';
+import styles from './LoginForm.module.css';
+import { Link } from 'react-router-dom';
+
+const LoginForm = () => {
+    return (
+        <div className={styles.container}>
+            <div className={styles.loginContainer}>
+                <h1>Login</h1>
+                <form className={styles.loginForm}>
+                    <div className={styles.formGroup}>
+                        {/* <label htmlFor="username">Username</label> */}
+                        <input type='text' id='email' name='email' placeholder='Email'required />
+                    </div>
+                    <div className={styles.formGroup}>
+                        {/* <label htmlFor="username">Username</label> */}
+                        <input type='password' id='password' name='passsword' placeholder='Password' required />
+                    </div>
+                    <div className={styles.buttonContainer}>
+                        <button type='submit' className={styles.loginButton}>Login</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div className={styles.sidebar}>
+                <h1>Welcome!</h1>
+                <p>Don't have an account?</p>
+                <Link to={'/register'} className={styles.createAccountButton}>Create Acccount</Link>
+            </div>
+        </div>
+    )
+}
+
+export default LoginForm;
