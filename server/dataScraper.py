@@ -16,7 +16,7 @@ class DataScraper():
         # Uses the requests package to get the html from the url
         self._data = requests.get(self._standingsUrl)
         self._data = BeautifulSoup(self._data.text)
-        # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
+        # Uses bs4 css selector method to select all elements tied to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
         # Finds every table element with the HTML <a> tag
         links = self._standingsTable.find_all('a')
