@@ -13,10 +13,10 @@ class DataScraper():
         self._teamLinks = None # Links to each epl team
 
     # The method that actually scrapes the data
-    def scrapeTeamLinks(self):
+    def scrapeData(self):
         # Uses the requests package to get the html from the url
         self._data = requests.get(self._standingsUrl)
-        self._data = BeautifulSoup(self._data.text)
+        self._data = BeautifulSoup(self._data.text, features='lxml')
         # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
         # Finds every table element with the HTML <a> tag
@@ -26,18 +26,30 @@ class DataScraper():
         # Only retains the links that link to each squad, not for example a player or other link
         links = [link for link in links if '/squad' in link]
         
+        # Creates a list of URLs for each team
         teamURLs = [f"https://fbref.com{link}" for link in links]
         
         teamURL = teamURLs[0]
+        # Fetches the data from the first team URL
         teamData = requests.get(teamURL)
+        # Reads the data into a pandas dataframe
         matches = pd.read_html(teamData.text, match='Scores & Fixtures')
+        # Parses the data
         soup = BeautifulSoup(teamData.text, features='html.parser')
+        # Finds all the <a> tags
         links = soup.find_all('a')
+        # Gets all the <a> tags that contain 'href' - a hyperlink
         links = [link.get('href') for link in links]
+        # Only retains the links that link to shooting stats
         links = [link for link in links if link and 'all_comps/shooting' in link]
 
+        # Fetches the data from the first shooting URL
         shootingData = requests.get(f"https://fbref.com{links[0]}")
+        # Reads the data into a pandas dataframe
         shooting = pd.read_html(shootingData.text, match='Shooting')[0]
+        # Drops the first level of the multi-index
         shooting.columns = shooting.columns.droplevel()
-        print(shooting.head())
+        # Merges the match data frame with select columns from the shootin data frame, joining each record on the 'Date' column
+        teamData = matches[0].merge(shooting[['Date', 'Sh', 'SoT', 'Dist', 'FK', 'PK', 'PKatt']], on='Date')
         
+        print(teamData.head())
