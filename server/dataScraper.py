@@ -16,7 +16,7 @@ class DataScraper():
     def scrapeTeamLinks(self):
         # Uses the requests package to get the html from the url
         self._data = requests.get(self._standingsUrl)
-        self._data = BeautifulSoup(self._data.text, features='html.parser')
+        self._data = BeautifulSoup(self._data.text)
         # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
         # Finds every table element with the HTML <a> tag
