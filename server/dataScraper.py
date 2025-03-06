@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import cloudscraper
 
 # Creates a class which will be used to fetch the data used in either displaying or predicting
 class DataScraper():
@@ -14,8 +15,16 @@ class DataScraper():
 
     # The method that actually scrapes the data
     def scrapeData(self):
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+            "Referer": "https://fbref.com/",
+            "Accept-Language": "en-US,en;q=0.9",
+        }
+        scraper = cloudscraper.create_scraper()  # Mimics a real browser
         # Uses the requests package to get the html from the url
-        self._data = requests.get(self._standingsUrl)
+        self._data = scraper.get(self._standingsUrl, headers=headers)
+        print(self._data)
+        # Uses the BeautifulSoup package to parse the html
         self._data = BeautifulSoup(self._data.text, features='lxml')
         # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
@@ -30,8 +39,11 @@ class DataScraper():
         teamURLs = [f"https://fbref.com{link}" for link in links]
         
         teamURL = teamURLs[0]
+        teamName = teamURL.split('/')[-1].replace('Stats', '').replace('-', ' ')
+        # teamSeason = year
+        print(teamName)
         # Fetches the data from the first team URL
-        teamData = requests.get(teamURL)
+        teamData = scraper.get(teamURL, headers=headers)
         # Reads the data into a pandas dataframe
         matches = pd.read_html(teamData.text, match='Scores & Fixtures')
         # Parses the data
@@ -44,7 +56,7 @@ class DataScraper():
         links = [link for link in links if link and 'all_comps/shooting' in link]
 
         # Fetches the data from the first shooting URL
-        shootingData = requests.get(f"https://fbref.com{links[0]}")
+        shootingData = scraper.get(f"https://fbref.com{links[0]}", headers=headers)
         # Reads the data into a pandas dataframe
         shooting = pd.read_html(shootingData.text, match='Shooting')[0]
         # Drops the first level of the multi-index
