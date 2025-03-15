@@ -39,7 +39,7 @@ class DataScraper():
         # Creates a list of URLs for each team
         teamURLs = [f"https://fbref.com{link}" for link in links]
         
-        counter = 0
+        counter = 1
         allMatches = []
 
         for teamURL in teamURLs:
@@ -81,7 +81,7 @@ class DataScraper():
             # Appends the data to the allMatches list
             allMatches.append(teamData)
 
-            counter += 0.5
+            counter += 60
             time.sleep(counter)
 
         matchDF = pd.concat(allMatches)
