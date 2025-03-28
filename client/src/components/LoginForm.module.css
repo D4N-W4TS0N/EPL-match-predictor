@@ -12,6 +12,7 @@ html, body {
     font-weight: 100;
 }
 
+
 .sidebar h1{
     font-size: 60px;
     font-family: Verdana;
@@ -22,14 +23,14 @@ html, body {
     font-family: Verdana;
     font-weight: 100;
     margin: 150px 0px 0px 0px;
-}
+} 
 
 .container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 60vh;
-    width: 1200px;
+    height: 60vh;  /* Declares the height, based on the sizing of the box of which it is contained in */
+    width: 120vh; /* Ensures that the container takes up the full width of the screen */
     padding: 20px;
     box-sizing: border-box;
 }
@@ -45,7 +46,7 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 60px;
+    padding: 40px;
     align-items: center;
 }
 
@@ -55,7 +56,7 @@ html, body {
 	height: 100%;
 	width: 50%;
 	box-sizing: border-box;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
 	}
@@ -75,28 +76,26 @@ html, body {
 .formGroup input:focus {
     border-color: #08ba4a;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px #08ba4a;
   }
 
 .loginButton{
-    width: 250px;
+    width: 13vw;
     min-height: 70px;
     margin: 30px 0px;
     border-radius: 10px;
     border-width: 0px;
-    border-color: #078e39;
     background-color: #08ba4a;
     color: #ffffff;
     font-size: 25px;
 }
-
 .loginButton:hover {
     background-color: #06963b;
     cursor: pointer;
 }
 
 .createAccountButton{
-    width: 300px;
+    width: 17vw;
     min-height: 50px;
     margin: 30px 0px 50px 0px;
     border-radius: 10px;
@@ -104,11 +103,11 @@ html, body {
     background-color: #08ba4a;
     color: #ffffff;
     font-size: 25px;
-    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-decoration: none;
 }
 
 .createAccountButton:hover {
@@ -116,7 +115,8 @@ html, body {
     cursor: pointer;
 }
 
+
 .buttonContainer{
     display: flex;
     justify-content: center; 
-}
+}  

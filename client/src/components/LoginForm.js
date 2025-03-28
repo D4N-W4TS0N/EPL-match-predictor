@@ -8,14 +8,15 @@ const LoginForm = () => {
             <div className={styles.loginContainer}>
                 <h1>Login</h1>
                 <form className={styles.loginForm}>
+
                     <div className={styles.formGroup}>
-                        {/* <label htmlFor="username">Username</label> */}
                         <input type='text' id='email' name='email' placeholder='Email'required />
                     </div>
+
                     <div className={styles.formGroup}>
-                        {/* <label htmlFor="username">Username</label> */}
                         <input type='password' id='password' name='passsword' placeholder='Password' required />
                     </div>
+                    
                     <div className={styles.buttonContainer}>
                         <button type='submit' className={styles.loginButton}>Login</button>
                     </div>

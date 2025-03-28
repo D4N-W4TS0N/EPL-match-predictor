@@ -62,7 +62,10 @@ class DataScraper():
             # Fetches the data from the first shooting URL
             shootingData = scraper.get(f"https://fbref.com{links[0]}", headers=headers)
             # Reads the data into a pandas dataframe
-            shooting = pd.read_html(shootingData.text, match='Shooting')[0]
+            try:
+                shooting = pd.read_html(shootingData.text, match='Shooting')[0]
+            except ValueError:
+                continue
             # Drops the first level of the multi-index
             shooting.columns = shooting.columns.droplevel()
             try:
@@ -81,8 +84,9 @@ class DataScraper():
             # Appends the data to the allMatches list
             allMatches.append(teamData)
 
-            counter += 60
+            counter += 10
             time.sleep(counter)
 
         matchDF = pd.concat(allMatches)
-        matchDF.to_csv('server/matches.csv')
+        print(matchDF)
+        matchDF.to_csv('matches.csv')
