@@ -113,6 +113,13 @@ html, body {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
+.errorMessage {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0px 0px 0px 17px;
+    font-family: Verdana;
+}
+
 .signUpButton{
     width: 13vw;
     min-height: 70px;
@@ -123,6 +130,11 @@ html, body {
     background-color: #08ba4a;
     color: #ffffff;
     font-size: 25px;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .signUpButton:hover {

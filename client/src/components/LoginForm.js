@@ -1,13 +1,21 @@
 import React from 'react';
 import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const LoginForm = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.loginContainer}>
                 <h1>Login</h1>
-                <form className={styles.loginForm}>
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
 
                     <div className={styles.formGroup}>
                         <input type='text' id='email' name='email' placeholder='Email'required />
