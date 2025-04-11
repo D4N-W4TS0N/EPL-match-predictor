@@ -10,11 +10,13 @@ const RegistrationForm = () => {
     const [lastName, setLastName] = useState('');
     const [emailIsValid, setEmailIsValid] = useState(true);
     const [passwordIsValid, setPasswordIsValid] = useState(true);
+    const [emailIsInUse, setEmailIsInUse] = useState(false);
 
     const handleEmailChange = (event) => {
         const newEmail = event.target.value;
+        setEmailIsInUse(false);
         setEmail(newEmail);
-        setEmailIsValid(newEmail.includes('@') && newEmail.includes('.') && newEmail.length > 4);
+        setEmailIsValid(newEmail.includes('@') && newEmail.includes('.') && !newEmail.includes(' ') && newEmail.length > 4);
     }
     const handlePasswordChange = (event) => {
         const newPassword = event.target.value;
@@ -24,21 +26,31 @@ const RegistrationForm = () => {
 
     const registrationIsValid = emailIsValid && passwordIsValid && firstName.length > 0 && lastName.length > 0;
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const response = fetch('http://127.0.0.1:5000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-                firstName,
-                lastName,
+        try {
+            const response = await fetch('http://127.0.0.1:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    firstName,
+                    lastName,
+                })
             })
-        })
+            
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                throw new Error(errorMessage);
+            }
+        
+        } catch(error) {
+            setEmailIsInUse(true);
+            console.error('Error:', error.message);
+        };
         
     }
 
@@ -53,9 +65,10 @@ const RegistrationForm = () => {
                     </div>
 
                     <div className={styles.formGroup}>
-                        <input type='email' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{borderColor: emailIsValid ? '' : 'red', margin: emailIsValid ? '' : '20px 0px 5px 0px'}}/>
-                        {!emailIsValid && <p className={styles.errorMessage}>Please enter a valid email address.</p>}
-                        <input type='password' id='password' name='password' placeholder='Password' required value={password} onChange={handlePasswordChange} style={{borderColor: passwordIsValid ? '' : 'red', margin: emailIsValid ? '' : '20px 0px 5px 0px'}}/>
+                        <input type='email' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{borderColor: !emailIsValid || emailIsInUse ? 'red' : '', margin: !emailIsValid || emailIsInUse ? '20px 0px 5px 0px' : ''}}/>
+                        {emailIsInUse && <p className={styles.errorMessage}>This email address is already in use, please login or enter a new email</p>}
+                        {!emailIsValid && !emailIsInUse && <p className={styles.errorMessage}>Please enter a valid email address.</p>}
+                        <input type='password' id='password' name='password' placeholder='Password' required value={password} onChange={handlePasswordChange} style={{borderColor: !passwordIsValid ? 'red' : '', margin: emailIsValid ? '' : '20px 0px 5px 0px'}}/>
                         {!passwordIsValid && <p className={styles.errorMessage}>Please enter a password of at least 8 characters.</p>}
                     </div>
 
