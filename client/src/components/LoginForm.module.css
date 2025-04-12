@@ -25,6 +25,14 @@ html, body {
     margin: 150px 0px 0px 0px;
 } 
 
+.errorMessage {
+    color: red;
+    font-size: 1.0rem;
+    font-weight: 100;
+    margin: 0px 0px 10px 17px;
+    font-family: Verdana;
+}
+
 .container {
     display: flex;
     justify-content: center;

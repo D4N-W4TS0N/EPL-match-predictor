@@ -54,10 +54,17 @@ def login():
     email = data.get('email')
     password = data.get('password')
 
-    if not User.query.filter_by(email=email).first():
-        return 'Account not found', 400
-    
+    user = User.query.filter_by(email=email).first()
 
+    if not user:
+        return 'Email not registered', 400
+    
+    if password != user.password:
+        return 'Incorrect password', 400
+
+    login_user(user)
+
+    return 'Logged in', 200
 
 # Run the application
 if __name__ == '__main__':
