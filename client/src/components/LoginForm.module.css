@@ -27,8 +27,8 @@ html, body {
 
 .errorMessage {
     color: red;
-    font-size: 1.0rem;
-    font-weight: 100;
+    font-size: 1.2rem;
+    font-style: oblique;
     margin: 0px 0px 10px 17px;
     font-family: Verdana;
 }

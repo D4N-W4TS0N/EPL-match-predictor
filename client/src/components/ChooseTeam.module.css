@@ -1,0 +1,88 @@
+/* html, body {
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6eaf0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    height: 10vh;
+    width: 60%;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.header h2 {
+    font-size: 15px;
+    font-family: verdana;
+    font-weight: 100;
+    margin-top: 0px;
+}
+
+.buttonList {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.teamInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttonContainer p {
+    font-family: Verdana;
+    margin: 10px 15px 10px 10px;
+    font-size: 20px;
+}
+
+.buttonContainer img {
+    width: 30px;
+    margin-left: 5px;
+}
+
+.buttonContainer button {
+    height: 3vh;
+    background-color: rgb(0, 0, 0);
+    color: #f9f9f9;
+    width: 10%;
+    margin: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    font: verdana;
+}
+
+.buttonContainer button:hover {
+    background-color: rgb(47, 45, 52);
+    cursor: pointer;
+} */

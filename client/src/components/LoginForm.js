@@ -2,19 +2,23 @@ import React from 'react';
 import styles from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
+        setLoginError(false);
     }
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
+        setLoginError(false);
     }
 
     const handleSubmit = async (event) => {
@@ -35,7 +39,10 @@ const LoginForm = () => {
             if (!response.ok){
                 const errorMessage = await response.text();
                 throw new Error(errorMessage);
+            } else {
+                navigate('/home');
             }
+
         } catch(error) {
             setLoginError(true);
             setErrorMessage(error.message);
@@ -50,7 +57,7 @@ const LoginForm = () => {
                 <form className={styles.loginForm} onSubmit={handleSubmit}>
 
                     <div className={styles.formGroup}>
-                        <input type='text' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange}/>
+                        <input type='text' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{margin: !loginError ? '' : '20px 0px 5px 0px'}}/>
                     </div>
 
                     <div className={styles.formGroup}>

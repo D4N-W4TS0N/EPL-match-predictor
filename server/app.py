@@ -8,18 +8,20 @@ CORS(app) # Enable CORS for all routes (Cross Origin Resource Sharing)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = '9f!2cL#z@N7$wTp1e%QxV8rY0mKdU6Ao'
 
 db = SQLAlchemy(app)
 loginManager = LoginManager()
+loginManager.init_app(app)
 loginManager.login_view = 'login'
 
 class User(db.Model, UserMixin):
-    userID = db.Column(db.Integer, primary_key=True) # Unique ID for each user, defines each record
+    id = db.Column(db.Integer, primary_key=True) # Unique ID for each user, defines each record
     email = db.Column(db.String(150), unique=True, nullable=False) # Unique email for each user, cannot be left blank
     password = db.Column(db.String(150), nullable=False) # Password for each user, cannot be left blank
     firstName = db.Column(db.String(150), nullable=False) # First name of the user, cannot be left blank
     lastName = db.Column(db.String(150), nullable=False) # Last name of the user, cannot be left blank
-
+    
 # Create database in context of the app
 with app.app_context():
     db.create_all() # Create the database tables

@@ -121,6 +121,9 @@ html, body {
 }
 
 .signUpButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 13vw;
     min-height: 70px;
     margin: 30px 0px;
@@ -130,6 +133,7 @@ html, body {
     background-color: #08ba4a;
     color: #ffffff;
     font-size: 25px;
+    text-decoration: none;
 }
 
 .disabled {

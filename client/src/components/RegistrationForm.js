@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './RegistrationForm.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
     const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const RegistrationForm = () => {
     const [emailIsValid, setEmailIsValid] = useState(true);
     const [passwordIsValid, setPasswordIsValid] = useState(true);
     const [emailIsInUse, setEmailIsInUse] = useState(false);
+    const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         const newEmail = event.target.value;
@@ -24,7 +26,7 @@ const RegistrationForm = () => {
         setPasswordIsValid(newPassword.length >= 8);
     }
 
-    const registrationIsValid = emailIsValid && passwordIsValid && firstName.length > 0 && lastName.length > 0;
+    const registrationIsValid = emailIsValid && passwordIsValid && firstName.length > 0 && lastName.length > 0 && email.length > 0 && password.length > 0;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,6 +47,8 @@ const RegistrationForm = () => {
             if (!response.ok) {
                 const errorMessage = await response.text();
                 throw new Error(errorMessage);
+            } else {
+                navigate('/choose-team');
             }
         
         } catch(error) {
@@ -68,7 +72,7 @@ const RegistrationForm = () => {
                         <input type='email' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{borderColor: !emailIsValid || emailIsInUse ? 'red' : '', margin: !emailIsValid || emailIsInUse ? '20px 0px 5px 0px' : ''}}/>
                         {emailIsInUse && <p className={styles.errorMessage}>This email address is already in use, please login or enter a new email</p>}
                         {!emailIsValid && !emailIsInUse && <p className={styles.errorMessage}>Please enter a valid email address.</p>}
-                        <input type='password' id='password' name='password' placeholder='Password' required value={password} onChange={handlePasswordChange} style={{borderColor: !passwordIsValid ? 'red' : '', margin: emailIsValid ? '' : '20px 0px 5px 0px'}}/>
+                        <input type='password' id='password' name='password' placeholder='Password' required value={password} onChange={handlePasswordChange} style={{borderColor: !passwordIsValid ? 'red' : '', margin: passwordIsValid ? '' : '20px 0px 5px 0px'}}/>
                         {!passwordIsValid && <p className={styles.errorMessage}>Please enter a password of at least 8 characters.</p>}
                     </div>
 
