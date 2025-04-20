@@ -1,16 +1,31 @@
 html, body {
-    height: 100%;
-    width: 100%;
+    height: auto;
     margin: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    background-color: #e6eaf0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .registrationContainer h1{
-    font-size: 45px;
+    font-size: 40px;
     font-family: Verdana;
     font-weight: 100;
+    margin-bottom: 0px;
+}
+
+.registrationContainer h2{
+    font-size: 15px;
+    font-family: Verdana;
+    font-weight: 100;
+    margin-bottom: 40px;
 }
 
 .sidebar h1{
@@ -25,23 +40,24 @@ html, body {
     font-weight: 100;
 }
 
-.container {
+.screen {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    height: 60vh;
-    width: 1200px;
+    height: 80vh;
+    width: 120vh;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .sidebar {
-    background-color: #08ba4a;
+    background-color: #101827;
     clear: none;
     height: 100%;
     width: 50%;
     box-sizing: border-box;
-    border-radius: 30px;
+    border-radius: 0px 5px 5px 0px;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -51,39 +67,42 @@ html, body {
 }
 
 .registrationContainer{
-	background-color: #ffffff;
+	background-color: #f9f9f9;
 	clear: none;
 	height: 100%;
 	width: 50%;
 	box-sizing: border-box;
     padding: 30px;
+    border-radius: 5px 0px 0px 5px;
     display: flex;
     flex-direction: column;
 	}
 
 .formGroup input {
     width: 95%;
-    height: 2vh;
+    height: 1.5vh;
     background-color: #f1eeee;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 0.75rem;
     border: 2px solid #a9a8a8;
     font-size: 1.2rem;
     transition: border-color 0.3s ease;
-    margin: 20px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 .nameFormGroup {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 15px;
 }
 
 .nameFormGroup input {
-    width: 95%;
-    height: 2vh;
+    width: 90%;
+    height: 1.5vh;
     background-color: #f1eeee;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 0.75rem;
     border: 2px solid #a9a8a8;
     font-size: 1.2rem;
@@ -91,32 +110,29 @@ html, body {
 }
 
 
-
 .nameFormGroup :first-child {
-    margin: 20px 10px 20px 0px;
+    margin: 10px 30px 0px 0px;
 }
 
 .nameFormGroup :last-child {
-    margin: 20px 0px 20px 10px;
+    margin: 10px 0px 0px 0px;
 }
 
 .formGroup input:focus {
-    border-color: #08ba4a;
+    border-color: rgb(47, 45, 52);
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
 
 .nameFormGroup input:focus {
-    border-color: #08ba4a;
+    border-color: rgb(47, 45, 52);
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
 .errorMessage {
     color: red;
     font-size: 0.8rem;
-    margin: 0px 0px 0px 17px;
+    margin: 0px 0px 15px 5px;
     font-family: Verdana;
 }
 
@@ -130,7 +146,7 @@ html, body {
     border-radius: 10px;
     border-width: 0px;
     border-color: #078e39;
-    background-color: #08ba4a;
+    background-color: #101827;
     color: #ffffff;
     font-size: 25px;
     text-decoration: none;
@@ -142,7 +158,7 @@ html, body {
 }
 
 .signUpButton:hover {
-    background-color: #06963b;
+    background-color: rgb(47, 45, 52);
     cursor: pointer;
 }
 
@@ -151,9 +167,8 @@ html, body {
     min-height: 50px;
     margin: 30px 0px 50px 0px;
     border-radius: 10px;
-    border: 2px solid #ffffff;
-    background-color: #08ba4a;
-    color: #ffffff;
+    background-color: #f9f9f9;
+    color: rgb(22, 21, 21);
     font-size: 25px;
     text-decoration: none;
     display: flex;
@@ -163,7 +178,7 @@ html, body {
 }
 
 .loginButton:hover {
-    background-color: #06963b;
+    background-color: #c7c6c6;
     cursor: pointer;
 }
 

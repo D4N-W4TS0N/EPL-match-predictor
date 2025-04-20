@@ -1,15 +1,31 @@
 html, body {
-    width: 100%;
+    height: auto;
     margin: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    background-color: #e6eaf0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .loginContainer h1{
-    font-size: 45px;
+    font-size: 30px;
     font-family: Verdana;
     font-weight: 100;
+    margin-bottom: 0px;
+}
+
+.loginContainer h2{
+    font-size: 15px;
+    font-family: Verdana;
+    font-weight: 100;
+    margin-bottom: 80px;
 }
 
 
@@ -33,29 +49,29 @@ html, body {
     font-family: Verdana;
 }
 
-.container {
+.screen {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 60vh;  /* Declares the height, based on the sizing of the box of which it is contained in */
-    width: 120vh; /* Ensures that the container takes up the full width of the screen */
-    padding: 20px;
+    height: 70vh;
+    width: 120vh;
     box-sizing: border-box;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
-    background-color:#08ba4a;
+    background-color: #101827;
     clear: none;
     height: 100%;
     width: 50%;
     box-sizing: border-box;
-    border-radius: 30px;
-    color: #ffffff;
+    color: #f9f9f9;
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 40px;
     align-items: center;
+    border-radius: 0px 5px 5px 0px;
 }
 
 .loginContainer{
@@ -67,24 +83,28 @@ html, body {
     padding: 30px;
     display: flex;
     flex-direction: column;
-	}
+    border-radius: 5px 0px 0px 5px;
+}
+
+.formGroup label {
+    margin: 0px 0px 0px 5px;
+}
 
 .formGroup input{
     width: 95%;
-    height: 3vh;
+    height: 2vh;
     background-color: #f1eeee;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 0.75rem;
     border: 2px solid #a9a8a8;
     font-size: 1.2rem;
     transition: border-color 0.3s ease;
-    margin: 20px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 .formGroup input:focus {
-    border-color: #08ba4a;
+    border: 2px solid rgb(47, 45, 52);
     outline: none;
-    box-shadow: 0 0 5px #08ba4a;
   }
 
 .loginButton{
@@ -93,12 +113,12 @@ html, body {
     margin: 30px 0px;
     border-radius: 10px;
     border-width: 0px;
-    background-color: #08ba4a;
+    background-color: #101827;
     color: #ffffff;
     font-size: 25px;
 }
 .loginButton:hover {
-    background-color: #06963b;
+    background-color: rgb(47, 45, 52);
     cursor: pointer;
 }
 
@@ -107,9 +127,8 @@ html, body {
     min-height: 50px;
     margin: 30px 0px 50px 0px;
     border-radius: 10px;
-    border: 2px solid #ffffff;
-    background-color: #08ba4a;
-    color: #ffffff;
+    background-color: #f9f9f9;
+    color: rgb(22, 21, 21);
     font-size: 25px;
     display: flex;
     justify-content: center;
@@ -119,7 +138,7 @@ html, body {
 }
 
 .createAccountButton:hover {
-    background-color: #06963b;
+    background-color: #c7c6c6;
     cursor: pointer;
 }
 

@@ -60,19 +60,29 @@ const RegistrationForm = () => {
 
     return (
         <div className={styles.container}>
+        <div className={styles.screen}>
             <div className={styles.registrationContainer}>
                 <h1>Create Account</h1>
+                <h2>Create an account to see predictions for your team throughout the 25/26 season</h2>
                 <form className={styles.registrationForm} onSubmit={handleSubmit}>
                     <div className={styles.nameFormGroup}>
-                        <input type='text' id='firstName' name='firstName' placeholder='First Name' required value={firstName} autoFocus onChange={(event) => setFirstName(event.target.value)}/>
-                        <input type='text' id='lastName' name='lastName' placeholder='Last Name' required value={lastName} onChange={(event) => setLastName(event.target.value)}/>
+                        <div className={styles.name}>
+                        <label htmlFor='firstName'>First Name</label>
+                        <input type='text' id='firstName' name='firstName' placeholder='Alexander' required value={firstName} autoFocus onChange={(event) => setFirstName(event.target.value)}/>
+                        </div>
+                        <div className={styles.name}>
+                        <label htmlFor='lastName'>Last Name</label>
+                        <input type='text' id='lastName' name='lastName' placeholder='Isak' required value={lastName} onChange={(event) => setLastName(event.target.value)}/>
+                        </div>
                     </div>
 
                     <div className={styles.formGroup}>
-                        <input type='email' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{borderColor: !emailIsValid || emailIsInUse ? 'red' : '', margin: !emailIsValid || emailIsInUse ? '20px 0px 5px 0px' : ''}}/>
+                        <label htmlFor='email'>Email</label>
+                        <input type='email' id='email' name='email' placeholder='example@email.com'required value={email} onChange={handleEmailChange} style={{borderColor: !emailIsValid || emailIsInUse ? 'red' : '', margin: !emailIsValid || emailIsInUse ? '20px 0px 5px 0px' : ''}}/>
                         {emailIsInUse && <p className={styles.errorMessage}>This email address is already in use, please login or enter a new email</p>}
                         {!emailIsValid && !emailIsInUse && <p className={styles.errorMessage}>Please enter a valid email address.</p>}
-                        <input type='password' id='password' name='password' placeholder='Password' required value={password} onChange={handlePasswordChange} style={{borderColor: !passwordIsValid ? 'red' : '', margin: passwordIsValid ? '' : '20px 0px 5px 0px'}}/>
+                        <label htmlFor='password'>Password</label>
+                        <input type='password' id='password' name='password' placeholder='••••••••' required value={password} onChange={handlePasswordChange} style={{borderColor: !passwordIsValid ? 'red' : '', margin: passwordIsValid ? '' : '20px 0px 5px 0px'}}/>
                         {!passwordIsValid && <p className={styles.errorMessage}>Please enter a password of at least 8 characters.</p>}
                     </div>
 
@@ -87,6 +97,7 @@ const RegistrationForm = () => {
                 <p>Already have an account?</p>
                 <Link to={'/login'} className={styles.loginButton}>Login</Link>
             </div>
+        </div>
         </div>
     )
 }

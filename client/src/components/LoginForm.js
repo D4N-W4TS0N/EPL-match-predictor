@@ -52,16 +52,20 @@ const LoginForm = () => {
 
     return (
         <div className={styles.container}>
+        <div className={styles.screen}>
             <div className={styles.loginContainer}>
-                <h1>Login</h1>
+                <h1>Premier League Predictor</h1>
+                <h2>Please login to see your team's stats and predictions for the next gameweek</h2>
                 <form className={styles.loginForm} onSubmit={handleSubmit}>
 
                     <div className={styles.formGroup}>
-                        <input type='text' id='email' name='email' placeholder='Email'required value={email} onChange={handleEmailChange} style={{margin: !loginError ? '' : '20px 0px 5px 0px'}}/>
+                        <label htmlFor='email'>Email</label>
+                        <input type='text' id='email' name='email' placeholder='example@email.com'required value={email} onChange={handleEmailChange} style={{margin: !loginError ? '' : '20px 0px 5px 0px'}}/>
                     </div>
 
                     <div className={styles.formGroup}>
-                        <input type='password' id='password' name='passsword' placeholder='Password' value={password} required onChange={handlePasswordChange}/>
+                    <label htmlFor='password'>Password</label>
+                    <input type='password' id='password' name='passsword' placeholder='••••••••' value={password} required onChange={handlePasswordChange}/>
                     </div>
                     {loginError && <p className={styles.errorMessage}>{errorMessage}</p>}
                     <div className={styles.buttonContainer}>
@@ -75,6 +79,7 @@ const LoginForm = () => {
                 <p>Don't have an account?</p>
                 <Link to={'/register'} className={styles.createAccountButton}>Create Acccount</Link>
             </div>
+        </div>
         </div>
     )
 }
