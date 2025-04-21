@@ -7,18 +7,19 @@ import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loginError, setLoginError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
-        setLoginError(false);
+        setEmailError(false);
     }
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
-        setLoginError(false);
+        setPasswordError(false);
     }
 
     const handleSubmit = async (event) => {
@@ -44,7 +45,11 @@ const LoginForm = () => {
             }
 
         } catch(error) {
-            setLoginError(true);
+            if (error.message.includes('password')) {
+                setPasswordError(true);
+            } else if (error.message.includes('Email')) {
+                setEmailError(true);
+            }
             setErrorMessage(error.message);
             console.error('Error:', error.message);
         }
@@ -60,14 +65,16 @@ const LoginForm = () => {
 
                     <div className={styles.formGroup}>
                         <label htmlFor='email'>Email</label>
-                        <input type='text' id='email' name='email' placeholder='example@email.com'required value={email} onChange={handleEmailChange} style={{margin: !loginError ? '' : '20px 0px 5px 0px'}}/>
+                        <input type='text' id='email' name='email' placeholder='example@email.com'required value={email} onChange={handleEmailChange} style={{margin: !emailError ? '' : '20px 0px 5px 0px', borderColor: !emailError ? '' : 'red'}}/>
+                        {emailError && <p className={styles.errorMessage}>{errorMessage}</p>}
                     </div>
 
                     <div className={styles.formGroup}>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' id='password' name='passsword' placeholder='••••••••' value={password} required onChange={handlePasswordChange}/>
+                    <input type='password' id='password' name='passsword' placeholder='••••••••' value={password} required onChange={handlePasswordChange} style={{margin: !passwordError ? '' : '20px 0px 5px 0px', borderColor: !passwordError ? '' : 'red'}}/>
+                    {passwordError && <p className={styles.errorMessage}>{errorMessage}</p>}
                     </div>
-                    {loginError && <p className={styles.errorMessage}>{errorMessage}</p>}
+                
                     <div className={styles.buttonContainer}>
                         <button type='submit' className={styles.loginButton}>Login</button>
                     </div>
@@ -75,8 +82,8 @@ const LoginForm = () => {
                 </form>
             </div>
             <div className={styles.sidebar}>
-                <h1>Welcome!</h1>
-                <p>Don't have an account?</p>
+                <h1>New to Premier League Predictor?</h1>
+                <p>Create an account to select your team and follow them with tailored stats and predictions throughout the 25/26 season</p>
                 <Link to={'/register'} className={styles.createAccountButton}>Create Acccount</Link>
             </div>
         </div>

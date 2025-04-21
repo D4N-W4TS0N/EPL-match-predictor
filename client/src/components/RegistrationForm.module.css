@@ -47,8 +47,8 @@ html, body {
     align-items: flex-start;
     height: 80vh;
     width: 120vh;
-    padding: 20px;
     box-sizing: border-box;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
