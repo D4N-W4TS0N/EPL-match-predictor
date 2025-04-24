@@ -9,10 +9,10 @@ html, body {
 
 .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensures the container takes at least the full height of the viewport, allows for scrolling*/
+    flex-direction: column; /* Children displayed vertically not horizontally */
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+    min-height: 100vh; /* Ensures the container takes at least the full height of the viewport, allows for scrolling */
     width: 80vw;
     padding: 20px;
     box-sizing: border-box;
