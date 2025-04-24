@@ -9,11 +9,11 @@ html, body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Children displayed vertically not horizontally */
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content horizontally */
-    min-height: 100vh; /* Ensures the container takes at least the full height of the viewport, allows for scrolling */
-    width: 80vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Declares the height, based on the sizing of the box of which it is contained in */
+    width: 80vw; /* Ensures that the container takes up the full width of the screen */
     padding: 20px;
     box-sizing: border-box;
 }
