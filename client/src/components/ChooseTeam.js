@@ -11,7 +11,7 @@ import mun from './images/mun.png';
 import newc from './images/new.png';
 import tot from './images/tot.png';
 import wol from './images/wol.png';
-import bri from './images/bri.png';
+import bha from './images/bha.png';
 import eve from './images/eve.png';
 import bmo from './images/bmo.png';
 import cry from './images/cry.png';
@@ -23,8 +23,25 @@ import epl from './images/epl.jpg';
 
 
 const ChooseTeam = () => {
+    const [team, setTeam] = useState(null);
+
+    const handleSubmit = async (selectedTeam) => {
+        setTeam(selectedTeam);
+
+        const response = await fetch('http://127.0.0.1:5000/choose-team', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                team: selectedTeam,
+            })
+        })
+
+    }
+
     return (
-        <body className={styles.body}>
         <div className={styles.container}>
             <div className={styles.header}>
                 <h1 className={styles.title}>Select your Premier League Team</h1>
@@ -36,14 +53,14 @@ const ChooseTeam = () => {
                         <img src={ars} alt="Arsenal Logo"/>
                         <p>Arsenal FC</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('ARS')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={avl} alt="Aston Villa Logo"/>
                         <p>Aston Villa</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('AVL')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
@@ -51,130 +68,129 @@ const ChooseTeam = () => {
                         <p>Bournemouth</p>
 
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('BOU')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={bre} alt="Brentford Logo"/>
                         <p>Brentford</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('BRE')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
-                        <img src={bri} alt="Brighton Logo"/>
+                        <img src={bha} alt="Brighton Logo"/>
                         <p>Brighton & Hove Albion</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('BHA')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={che} alt="Chelsea Logo"/>
                         <p>Chelsea FC</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('CHE')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={cry} alt="Palace Logo"/>
                         <p>Crystal Palace FC</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('CRY')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={eve} alt="Everton Logo"/>
                         <p>Everton</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('EVE')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={ful} alt="Fulham Logo"/>
                         <p>Fulham</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('FUL')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={liv} alt="Liverpool Logo"/>
                         <p>Liverpool FC</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('LIV')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={mci} alt="City Logo"/>
                         <p>Manchester City</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('MCI')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={mun} alt="Yanited Logo"/>
                         <p>Manchester United</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('MUN')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={newc} alt="Toon Logo"/>
                         <p>Newcastle United</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('NEW')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={nfo} alt="Forrest Logo"/>
                         <p>Nottingham Forrest</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('NFO')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={tot} alt="Spurs Logo"/>
                         <p>Tottenham Hotspur</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('TOT')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={whu} alt="Hammers Logo"/>
                         <p>West Ham United</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('WHU')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={wol} alt="Wolves Logo"/>
                         <p>Wolverhampton Wanderers</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('WOL')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={epl} alt="EPL Logo"/>
                         <p>Promoted 1</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('PR1')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={epl} alt="EPL Logo"/>
                         <p>Promoted 2</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('PR2')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
                         <img src={epl} alt="EPL Logo"/>
                         <p>Promoted 3</p>
                     </div>
-                    <button>Choose</button>
+                    <button onClick={() => handleSubmit('PR3')}>Choose</button>
                 </div>
             </div>
         </div>
-        </body>
     )
 }
 
