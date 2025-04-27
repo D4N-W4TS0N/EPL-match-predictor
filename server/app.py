@@ -4,19 +4,20 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins='http://localhost:3000') # Enable CORS for all routes (Cross Origin Resource Sharing)
+CORS(app, supports_credentials=True, origins="http://localhost:3000")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = '9f!2cL#z@N7$wTp1e%QxV8rY0mKdU6Ao'
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # or 'None' for HTTPS
-app.config['SESSION_COOKIE_SECURE'] = False    # True if using HTTPS
+app.config['SESSION_COOKIE_SAMESITE'] = 'None' ;'Secure'
+app.config['SESSION_COOKIE_SECURE'] = True    # True if using HTTPS
 
 
 db = SQLAlchemy(app)
 loginManager = LoginManager()
 loginManager.init_app(app)
 loginManager.login_view = 'login'
+loginManager.unauthorized_handler(lambda: ('Unauthorized', 401))
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True) # Unique ID for each user, defines each record
@@ -58,9 +59,9 @@ def register():
     return 'User created', 201 # Return a success message with response code 201
 
 @app.route('/choose-team', methods=['POST'])
-# @login_required
+@login_required
 def chooseTeam():
-    print(current_user.is_authenticated)
+    print(current_user)
 
     data = request.get_json()
 
@@ -68,14 +69,15 @@ def chooseTeam():
     print(data['team'])
     db.session.commit()
     
-    print(current_user.firstName)
-
     return 'Team selection updated', 200
 
 
 
-@app.route('/login', methods=['post'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
+    if request.method == "GET":
+        return 'Login Required', 401
+
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
