@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ChooseTeam.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ars from './images/ars.png';
 import avl from './images/avl.png';
 import che from './images/che.png';
@@ -24,20 +25,33 @@ import epl from './images/epl.jpg';
 
 const ChooseTeam = () => {
     const [team, setTeam] = useState(null);
+    const [errorPresent, setErrorPresent] = useState(false);
+    const navigate = useNavigate();
 
+    
     const handleSubmit = async (selectedTeam) => {
         setTeam(selectedTeam);
-
-        const response = await fetch('http://127.0.0.1:5000/choose-team', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify({
-                team: selectedTeam,
-            })
-        })
+        try  {
+            const response = await fetch('http://127.0.0.1:5000/choose-team', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    team: selectedTeam,
+                })
+                })
+                if (!response.ok) {
+                    const errorMessage = await response.text();
+                    throw new Error(errorMessage);
+                } else {
+                    navigate('/home');
+                }
+        } catch (error) {
+            setErrorPresent(true);
+            console.error('Error:', error.message);
+        }
 
     }
 
@@ -46,6 +60,7 @@ const ChooseTeam = () => {
             <div className={styles.header}>
                 <h1 className={styles.title}>Select your Premier League Team</h1>
                 <h2 className={styles.subtitle}>Choose your team to follow with tailored predictions and statistics throughout the 25/26 season</h2>
+                {errorPresent && <p className={styles.errorMessage}>Error saving team selection, please try again later.</p>}
             </div>
             <div className={styles.buttonList}>
                 <div className={styles.buttonContainer}>

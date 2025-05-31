@@ -97,3 +97,10 @@ html, body {
     background-color: rgb(47, 45, 52);
     cursor: pointer;
 }
+
+.errorMessage {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0px 0px 15px 5px;
+    font-family: Verdana;
+}
