@@ -20,6 +20,9 @@ import nfo from './images/nfo.png';
 import whu from './images/whu.png';
 import bre from './images/bre.png';
 import mci from './images/mci.png';
+import sun from './images/sun.png';
+import lee from './images/lee.png';
+import bur from './images/bur.png';
 import epl from './images/epl.jpg';
 
 
@@ -101,6 +104,13 @@ const ChooseTeam = () => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
+                        <img src={bur} alt="Burnley Logo"/>
+                        <p>Burnley</p>
+                    </div>
+                    <button onClick={() => handleSubmit('BUR')}>Choose</button>
+                </div>
+                <div className={styles.buttonContainer}>
+                    <div className={styles.teamInfo}>
                         <img src={che} alt="Chelsea Logo"/>
                         <p>Chelsea FC</p>
                     </div>
@@ -129,6 +139,13 @@ const ChooseTeam = () => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
+                        <img src={lee} alt="Leeds Logo"/>
+                        <p>Leeds United</p>
+                    </div>
+                    <button onClick={() => handleSubmit('LEE')}>Choose</button>
+                </div>
+                <div className={styles.buttonContainer}>
+                    <div className={styles.teamInfo}>
                         <img src={liv} alt="Liverpool Logo"/>
                         <p>Liverpool FC</p>
                     </div>
@@ -136,21 +153,21 @@ const ChooseTeam = () => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
-                        <img src={mci} alt="City Logo"/>
+                        <img src={mci} alt="Man City Logo"/>
                         <p>Manchester City</p>
                     </div>
                     <button onClick={() => handleSubmit('MCI')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
-                        <img src={mun} alt="Yanited Logo"/>
+                        <img src={mun} alt="Man Utd Logo"/>
                         <p>Manchester United</p>
                     </div>
                     <button onClick={() => handleSubmit('MUN')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
-                        <img src={newc} alt="Toon Logo"/>
+                        <img src={newc} alt="Newcastle Logo"/>
                         <p>Newcastle United</p>
                     </div>
                     <button onClick={() => handleSubmit('NEW')}>Choose</button>
@@ -164,6 +181,13 @@ const ChooseTeam = () => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
+                        <img src={sun} alt="Sunderland Logo"/>
+                        <p>Sunderland AFC</p>
+                    </div>
+                    <button onClick={() => handleSubmit('PR2')}>Choose</button>
+                </div>
+                <div className={styles.buttonContainer}>
+                    <div className={styles.teamInfo}>
                         <img src={tot} alt="Spurs Logo"/>
                         <p>Tottenham Hotspur</p>
                     </div>
@@ -171,7 +195,7 @@ const ChooseTeam = () => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>
-                        <img src={whu} alt="Hammers Logo"/>
+                        <img src={whu} alt="West Ham Logo"/>
                         <p>West Ham United</p>
                     </div>
                     <button onClick={() => handleSubmit('WHU')}>Choose</button>
@@ -182,27 +206,6 @@ const ChooseTeam = () => {
                         <p>Wolverhampton Wanderers</p>
                     </div>
                     <button onClick={() => handleSubmit('WOL')}>Choose</button>
-                </div>
-                <div className={styles.buttonContainer}>
-                    <div className={styles.teamInfo}>
-                        <img src={epl} alt="EPL Logo"/>
-                        <p>Promoted 1</p>
-                    </div>
-                    <button onClick={() => handleSubmit('PR1')}>Choose</button>
-                </div>
-                <div className={styles.buttonContainer}>
-                    <div className={styles.teamInfo}>
-                        <img src={epl} alt="EPL Logo"/>
-                        <p>Promoted 2</p>
-                    </div>
-                    <button onClick={() => handleSubmit('PR2')}>Choose</button>
-                </div>
-                <div className={styles.buttonContainer}>
-                    <div className={styles.teamInfo}>
-                        <img src={epl} alt="EPL Logo"/>
-                        <p>Promoted 3</p>
-                    </div>
-                    <button onClick={() => handleSubmit('PR3')}>Choose</button>
                 </div>
             </div>
         </div>
