@@ -98,3 +98,4 @@ class DataScraper():
         matchDF = pd.concat(allMatches)
         print(matchDF)
         matchDF.to_csv('matches.csv')
+
