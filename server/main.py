@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score
 
 
 def prepareData():
-    df = pd.read_csv('24-25.csv', index_col=0)
+    df = pd.read_csv('matches.csv', index_col=0)
     # print(df.shape)
 
     df["Date"] = pd.to_datetime(df["Date"])
@@ -64,7 +64,7 @@ def evaluateModel():
 
     return combined, precision, accuracy
 
-# print(evaluateModel())
+def  trainModel():
+    df = prepareData()
 
-epl = DataScraper()
-epl.scrapeData()
+    
