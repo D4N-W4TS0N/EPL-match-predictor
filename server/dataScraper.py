@@ -27,6 +27,7 @@ class DataScraper():
 
         # Uses the BeautifulSoup package to parse the html
         self._data = BeautifulSoup(self._data.text, features='lxml')
+        print(self._data.prettify())
 
         # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
@@ -97,5 +98,64 @@ class DataScraper():
 
         matchDF = pd.concat(allMatches)
         print(matchDF)
-        matchDF.to_csv('matches.csv')
+        matchDF.to_csv('25-26.csv')
+
+    def scrapeFixtures(self):
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+                "Referer": "https://fbref.com/",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
+            scraper = cloudscraper.create_scraper()  # Mimics a real browser
+            # Uses the requests package to get the html from the url
+            self._data = scraper.get(self._standingsUrl, headers=headers)
+
+            # Uses the BeautifulSoup package to parse the html
+            self._data = BeautifulSoup(self._data.text, features='lxml')
+            print(self._data.prettify())
+
+            # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
+            self._standingsTable = self._data.select('table.stats_table')[0]
+            # Finds every table element with the HTML <a> tag
+            aTags = self._standingsTable.find_all('a')
+            links = []
+            for link in aTags:
+                link = link.get('href')
+                if '/squad' in link:
+                    links.append(link)
+            
+            # Creates a list of URLs for each team
+            teamURLs = []
+            for link in links:
+                teamURLs.append(f"https://fbref.com{link}")
+
+            
+            allFixtures =[]
+            counter = 0
+
+            for teamURL in teamURLs:
+                teamName = teamURL.split('/')[-1].replace('Stats', '').replace('-', ' ')
+                teamData = scraper.get(teamURL, headers=headers)
+
+                matches = pd.read_html(teamData.text, match='Scores & Fixtures')[0]
+                
+                # print(matches)
+
+                matches = matches[matches['Captain'].isna()]
+                matches = matches[matches['Comp'] == 'Premier League']
+                matches['Season'] = "2025-2026"
+                matches['Team'] = teamName
+                print(matches)
+
+                allFixtures.append(matches)
+                counter += 5
+                time.sleep(counter)
+
+            matchDF = pd.concat(allFixtures)
+            print(matchDF)
+            matchDF.to_csv('fixtures.csv')
+
+
+
+
 

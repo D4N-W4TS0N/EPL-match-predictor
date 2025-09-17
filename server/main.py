@@ -4,8 +4,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score
 
 
-def prepareData():
-    df = pd.read_csv('matches.csv', index_col=0)
+def prepareData(fileName):
+    df = pd.read_csv(fileName, index_col=0)
     # print(df.shape)
 
     df["Date"] = pd.to_datetime(df["Date"])
@@ -65,6 +65,20 @@ def evaluateModel():
     return combined, precision, accuracy
 
 def  trainModel():
-    df = prepareData()
+
+    df = prepareData('fixtures.csv')
+    groupedMatches = df.groupby('Team')
+
+
+
+
+
+epl = DataScraper()
+epl.scrapeFixtures()
+
+
+
+
+
 
     
