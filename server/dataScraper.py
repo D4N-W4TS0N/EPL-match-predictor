@@ -27,7 +27,7 @@ class DataScraper():
 
         # Uses the BeautifulSoup package to parse the html
         self._data = BeautifulSoup(self._data.text, features='lxml')
-        print(self._data.prettify())
+        # print(self._data.prettify())
 
         # Uses bs4 css selector method to select all elements ties to the CSS class 'table.stats_table'
         self._standingsTable = self._data.select('table.stats_table')[0]
@@ -68,9 +68,9 @@ class DataScraper():
                 shootingURLs.append(f"https://fbref.com{link}")
 
             shootingData = scraper.get(shootingURLs[0], headers=headers)
-            print(shootingData.text)
+            # print(shootingData.text)
 
-            print(shootingData.text)
+            # print(shootingData.text)
 
             try:
                 shootingDF = pd.read_html(shootingData.text, match="Shooting")[0]
@@ -85,15 +85,15 @@ class DataScraper():
             except ValueError as error:
                 print(f"Error: {error}")
 
-            print(teamData.columns)
+            # print(teamData.columns)
 
             teamData = teamData[teamData['Comp'] == 'Premier League']
-            teamData['Season'] = "2024-2025"
+            teamData['Season'] = "2025-2026"
             teamData['Team'] = teamName
             print(teamData)
 
             allMatches.append(teamData)
-            counter += 10
+            counter += 1
             time.sleep(counter)
 
         matchDF = pd.concat(allMatches)
@@ -148,7 +148,7 @@ class DataScraper():
                 print(matches)
 
                 allFixtures.append(matches)
-                counter += 5
+                counter += 1
                 time.sleep(counter)
 
             matchDF = pd.concat(allFixtures)

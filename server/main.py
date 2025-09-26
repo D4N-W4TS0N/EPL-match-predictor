@@ -4,11 +4,15 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score
 
 
-def prepareData(fileName):
-    df = pd.read_csv(fileName, index_col=0)
-    # print(df.shape)
+def prepareDataTrain():
+    df = pd.read_csv('matches.csv', index_col=0)
+    # print(df.values)
 
+    df = df[df["Date"] != "Date"]
     df["Date"] = pd.to_datetime(df["Date"])
+    df = df.sort_values(by=['Team', 'Date']).reset_index(drop=True) 
+
+    # print(df.head(-50))
 
     df["venueCode"] = df["Venue"].astype('category').cat.codes
     df["opponentCode"] = df["Opponent"].astype('category').cat.codes
@@ -16,22 +20,43 @@ def prepareData(fileName):
     df["dayCode"] = df["Date"].dt.dayofweek
     df["target"] = (df["Result"] == "W").astype(int)
 
+    # print(df.head(50))
+
+    return df
+
+def prepareDataPredict(matchesCSV, fixturesCSV):
+    dfMatches = pd.read_csv(matchesCSV, index_col=0)
+    dfFixtures = pd.read_csv(fixturesCSV, index_col=0)
+    # print(df.values)
+
+    dfFixtures = dfFixtures.reindex(columns=dfMatches.columns)
+    df = pd.concat([dfMatches, dfFixtures], ignore_index=True)
+
+    df = df[df["Date"] != "Date"]
+    df["Date"] = pd.to_datetime(df["Date"])
+    df = df.sort_values(by=['Team', 'Date']).reset_index(drop=True) 
+
+    # print(df.head(-50))
+
+    df["venueCode"] = df["Venue"].astype('category').cat.codes
+    df["opponentCode"] = df["Opponent"].astype('category').cat.codes
+    df["hour"] = df["Time"].str.replace(':.+', '', regex=True).astype(int)
+    df["dayCode"] = df["Date"].dt.dayofweek
+    df["target"] = (df["Result"] == "W").astype(int)
+
+    # print(df.head(50))
+
     return df
 
 def rollingAverage(group, existingColumns, newColumns):
         group = group.sort_values('Date')
-        rollingStats = group[existingColumns].rolling(7, closed='left').mean()
+        rollingStats = group[existingColumns].rolling(3, closed='left').mean()
         group[newColumns] = rollingStats
         group = group.dropna(subset=newColumns)
         return group
 
-def evaluateModel():
-
-    df = prepareData()
-
-    groupedMatches = df.groupby('Team')
-
-    
+def trainModel():
+    df = prepareDataTrain()
 
     existingColumns = ['GF', 'GA', 'Sh', 'SoT', 'FK', 'PK', 'PKatt', 'Poss', 'Dist']
     newColumns = [f"{column}_rolling" for column in existingColumns]
@@ -62,19 +87,46 @@ def evaluateModel():
     precision = precision_score(test["target"], predictions)
     accuracy = accuracy_score(test["target"], predictions)
 
-    return combined, precision, accuracy
+    print(precision, accuracy)
 
-def  trainModel():
+    return forest
 
-    df = prepareData('fixtures.csv')
-    groupedMatches = df.groupby('Team')
+def predict(forest):
+
+    df = prepareDataPredict('matches.csv', 'fixtures.csv')
+    # df = pd.read_csv('24-25.csv')
+
+    existingColumns = ['GF', 'GA', 'Sh', 'SoT', 'FK', 'PK', 'PKatt', 'Poss', 'Dist']
+    newColumns = [f"{column}_rolling" for column in existingColumns]
+    predictors = ["venueCode", "opponentCode", "hour", "dayCode"]
+
+    dfRolling = df.groupby('Team').apply(lambda eachTeam: rollingAverage(eachTeam, existingColumns, newColumns))
+    dfRolling = dfRolling.droplevel('Team')
+    dfRolling.index = range(dfRolling.shape[0])
+
+    dfRollingMatches = dfRolling[dfRolling["Result"].notna()]
+    dfRollingFixtures = dfRolling[dfRolling["Result"].isna()]
+
+    predictors = predictors + newColumns
+
+    predictions = forest.predict(dfRollingFixtures[predictors])
+    probabilities = forest.predict_proba(dfRollingFixtures[predictors])[:, 1]
+
+    print(predictions)
+    combined = pd.DataFrame(dict(actualValue = dfRollingFixtures["target"], predictedValue = predictions, confidencePercentage = probabilities*100))
+    combined = combined.merge(dfRolling[["Date", "Team", "Opponent"]], left_index=True, right_index=True).drop(columns=["actualValue"])
+
+    print(combined)
+
+# epl = DataScraper()
+# epl.scrapeFixtures()
+
+forest = trainModel()
+predict(forest)
+
+# trainModel()
 
 
-
-
-
-epl = DataScraper()
-epl.scrapeFixtures()
 
 
 
