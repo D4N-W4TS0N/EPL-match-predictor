@@ -50,7 +50,7 @@ def prepareDataPredict(matchesCSV, fixturesCSV):
 
 def rollingAverage(group, existingColumns, newColumns):
         group = group.sort_values('Date')
-        rollingStats = group[existingColumns].rolling(3, closed='left').mean()
+        rollingStats = group[existingColumns].rolling(5, closed='left').mean()
         group[newColumns] = rollingStats
         group = group.dropna(subset=newColumns)
         return group
@@ -112,19 +112,56 @@ def predict(forest):
     predictions = forest.predict(dfRollingFixtures[predictors])
     probabilities = forest.predict_proba(dfRollingFixtures[predictors])[:, 1]
 
-    print(predictions)
+    # print(predictions)
     combined = pd.DataFrame(dict(actualValue = dfRollingFixtures["target"], predictedValue = predictions, confidencePercentage = probabilities*100))
     combined = combined.merge(dfRolling[["Date", "Team", "Opponent"]], left_index=True, right_index=True).drop(columns=["actualValue"])
 
-    print(combined)
+    homeTeams = dfRollingFixtures[dfRollingFixtures['Venue']=='Home']['Team']
+
+    return combined, homeTeams
+
+def combineHA(preds, homeTeams):
+    class MissingDict(dict):
+        __missing__ = lambda self, key: key
+
+    mapValues = {
+        "Brighton and Hove Albion ": "Brighton ",
+        "Manchester United ": "Manchester Utd ",
+        "Newcastle United ": "Newcastle Utd",
+        "Nottingham Forest ": "Nott'ham Forest ",
+        "Tottenham Hotspur ": "Tottenham ",
+        "West Ham United ": "West Ham ",
+        "Wolverhampton Wanderers ": "Wolves "
+    }
+
+    mapping = MissingDict(mapValues)
+    preds["Team"] = preds["Team"].map(mapping)
+    # print(preds)
+    preds.columns = preds.columns.str.strip()
+    preds["Opponent"] = preds["Opponent"].str.strip()
+    preds["Team"] = preds["Team"].str.strip()
+    homeTeams = homeTeams.map(mapping).values
+    homeTeams = [team.strip() for team in homeTeams]
+
+
+    home = preds[preds["Team"].isin(homeTeams)].copy()
+    away = preds[~preds["Team"].isin(homeTeams)].copy()
+    print(home)
+    print(away)
+
+    finalPreds = preds.merge(preds, left_on=["Date", "Team"], right_on=["Date", "Opponent"])
+    # print(finalPreds)
+    return finalPreds
 
 # epl = DataScraper()
+# epl.scrapeData()
 # epl.scrapeFixtures()
 
 forest = trainModel()
-predict(forest)
+preds, homeTeams = predict(forest)
+finalPreds = combineHA(preds, homeTeams)
 
-# trainModel()
+
 
 
 
