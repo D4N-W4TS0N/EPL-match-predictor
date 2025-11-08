@@ -71,6 +71,10 @@ def chooseTeam():
     
     return 'Team selection updated', 200
 
+@app.route('/home', methods=['GET'])
+@login_required
+def home():
+    print(current_user)
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -91,8 +95,11 @@ def login():
         return 'Incorrect password', 400
 
     login_user(user)
+    print(current_user.team)
+
 
     return 'Logged in', 200
+
 
 # Run the application
 if __name__ == '__main__':

@@ -146,11 +146,11 @@ def combineHA(preds, homeTeams):
 
     home = preds[preds["Team"].isin(homeTeams)].copy()
     away = preds[~preds["Team"].isin(homeTeams)].copy()
-    print(home)
-    print(away)
+    # print(home)
+    # print(away)
 
-    finalPreds = preds.merge(preds, left_on=["Date", "Team"], right_on=["Date", "Opponent"])
-    # print(finalPreds)
+    finalPreds = home.merge(away, left_on=["Date", "Team"], right_on=["Date", "Opponent"])
+    print(finalPreds)
     return finalPreds
 
 # epl = DataScraper()
