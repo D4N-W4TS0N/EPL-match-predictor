@@ -139,4 +139,48 @@ html, body {
     color: aqua;
 }
 
+.predictionBody {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 14px;
+}
+
+.leftSide{
+    width: 50%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: row;
+    margin: 30px 15px 45px 15px;
+}
+
+.homeSide {
+    height: 100%;
+    width: 45%;
+    background-color: violet;
+    border-radius: 14px;
+}
+
+.centre {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: verdana;
+    font-size: 24px;
+    font-weight: 10
+}
+
+.awaySide {
+    height: 100%;
+    width: 45%;
+    background-color: orange;
+    border-radius: 14px;
+}
+
+.rightSide{
+    width: 50%;
+    border-radius: 14px;
+}
 

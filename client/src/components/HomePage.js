@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, Calendar, User, Database } from "lucide-react";
 
 const HomePage = () => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/home', {
+                    method: 'GET', 
+                    credentials: 'include',
+                });
+            
+            if (response.ok) {
+                const data = await response.json()
+                setUser(data);
+            } else {
+                console.error('Failed to fetch user data', response);
+            }
+
+            } catch (error) {
+                console.error('Error fetching user:', error);
+            }
+        };
+
+        fetchUser();
+    }, []);
+    if (!user) return <p>Loading...</p>;
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -35,6 +61,15 @@ const HomePage = () => {
                                 <span className={styles.iconText}> <Calendar size={16} className={styles.icon}/>Sunday 9th November</span>
                             </div>
                             <p>Premier League</p>
+                        </div>
+
+                        <div className={styles.predictionBody}>
+                            <div className={styles.leftSide}> 
+                                <div className={styles.homeSide}/>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}/>
+                            </div>
+                            <div className={styles.rightSide}/>
                         </div>
 
                     </div>

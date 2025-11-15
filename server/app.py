@@ -2,15 +2,17 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_cors import CORS
+from flask import jsonify
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins="http://localhost:3000")
+CORS(app, supports_credentials=True, origins=["http://localhost:3000", "http://127.0.0.1:3000"])
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = '9f!2cL#z@N7$wTp1e%QxV8rY0mKdU6Ao'
-app.config['SESSION_COOKIE_SAMESITE'] = 'None' ;'Secure'
-app.config['SESSION_COOKIE_SECURE'] = True    # True if using HTTPS
+app.config['SESSION_COOKIE_SAMESITE'] = 'None'
+app.config['SESSION_COOKIE_SECURE'] = True  
+
 
 
 db = SQLAlchemy(app)
@@ -74,7 +76,13 @@ def chooseTeam():
 @app.route('/home', methods=['GET'])
 @login_required
 def home():
-    print(current_user)
+    userData = {
+        'email': current_user.email,
+        'firstName': current_user.firstName,
+        'lastName': current_user.lastName,
+        'team': current_user.team
+    }
+    return jsonify(userData), 200
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -94,6 +102,8 @@ def login():
     if password != user.password:
         return 'Incorrect password', 400
 
+
+    logout_user()
     login_user(user)
     print(current_user.team)
 
