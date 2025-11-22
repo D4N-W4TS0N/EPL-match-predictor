@@ -1,4 +1,4 @@
-from dataScraper import DataScraper
+from .dataScraper import DataScraper
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score
@@ -50,7 +50,7 @@ def prepareDataPredict(matchesCSV, fixturesCSV):
 
 def rollingAverage(group, existingColumns, newColumns):
         group = group.sort_values('Date')
-        rollingStats = group[existingColumns].rolling(5, closed='left').mean()
+        rollingStats = group[existingColumns].rolling(7, closed='left').mean()
         group[newColumns] = rollingStats
         group = group.dropna(subset=newColumns)
         return group
@@ -150,16 +150,15 @@ def combineHA(preds, homeTeams):
     # print(away)
 
     finalPreds = home.merge(away, left_on=["Date", "Team"], right_on=["Date", "Opponent"])
-    print(finalPreds)
     return finalPreds
 
 # epl = DataScraper()
 # epl.scrapeData()
 # epl.scrapeFixtures()
 
-forest = trainModel()
-preds, homeTeams = predict(forest)
-finalPreds = combineHA(preds, homeTeams)
+# forest = trainModel()
+# preds, homeTeams = predict(forest)
+# finalPreds = combineHA(preds, homeTeams)
 
 
 

@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_cors import CORS
 from flask import jsonify
+import pandas as pd
+
+from ML import predictor, dataScraper
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=["http://localhost:3000", "http://127.0.0.1:3000"])
@@ -13,13 +16,12 @@ app.secret_key = '9f!2cL#z@N7$wTp1e%QxV8rY0mKdU6Ao'
 app.config['SESSION_COOKIE_SAMESITE'] = 'None'
 app.config['SESSION_COOKIE_SECURE'] = True  
 
-
-
 db = SQLAlchemy(app)
 loginManager = LoginManager()
 loginManager.init_app(app)
 loginManager.login_view = 'login'
 loginManager.unauthorized_handler(lambda: ('Unauthorized', 401))
+
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True) # Unique ID for each user, defines each record
@@ -32,6 +34,15 @@ class User(db.Model, UserMixin):
 # Create database in context of the app
 with app.app_context():
     db.create_all() # Create the database tables
+
+    # epl = dataScraper.DataScraper()
+    # epl.scrapeData()
+    # epl.scrapeFixtures()  
+
+    forest = predictor.trainModel()
+    preds, homeTeams = predictor.predict(forest)
+    finalPreds = predictor.combineHA(preds, homeTeams)
+
 
 @loginManager.user_loader
 def load_user(user_id): # Load the user by ID
@@ -76,11 +87,46 @@ def chooseTeam():
 @app.route('/home', methods=['GET'])
 @login_required
 def home():
+    global finalPreds
+    team = current_user.team
+    teams = {
+        "ARS": "Arsenal",
+        "AVL": "Aston Villa",
+        "BHA": "Brighton",
+        "BRE": "Brentford",
+        "BOU": "Bournemouth",
+        "BUR": "Burnley",
+        "CHE": "Chelsea",
+        "CRY": "Crystal Palace",
+        "EVE": "Everton",
+        "FUL": "Fulham",
+        "LEE": "Leeds United",
+        "LIV": "Liverpool",
+        "MCI": "Manchester City",
+        "MUN": "Manchester Utd",
+        "NEW": "Newcastle Utd",
+        "NFO": "Nott'ham Forest",
+        "SUN": "Sunderland",
+        "TOT": "Tottenham",
+        "WHU": "West Ham",
+        "WOL": "Wolves"
+
+    }
+    team = teams.get(team, team)
+    mask = (finalPreds['Team_x'] == team) | (finalPreds['Team_y'] == team)
+    userMatch = finalPreds[mask]
+    otherMatches = finalPreds[~mask]
+    finalPreds = pd.concat([userMatch, otherMatches], ignore_index=True)
+
+    print(finalPreds)
+
     userData = {
         'email': current_user.email,
         'firstName': current_user.firstName,
         'lastName': current_user.lastName,
-        'team': current_user.team
+        'team': current_user.team,
+        'predictions': finalPreds.to_dict(orient='records')
+
     }
     return jsonify(userData), 200
 

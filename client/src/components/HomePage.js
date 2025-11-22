@@ -2,6 +2,26 @@ import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, Calendar, User, Database } from "lucide-react";
+import ars from './images/ars.png';
+import avl from './images/avl.png';
+import che from './images/che.png';
+import ful from './images/ful.png';
+import liv from './images/liv.png';
+import mun from './images/mun.png';
+import newc from './images/new.png';
+import tot from './images/tot.png';
+import wol from './images/wol.png';
+import bha from './images/bha.png';
+import eve from './images/eve.png';
+import bmo from './images/bmo.png';
+import cry from './images/cry.png';
+import nfo from './images/nfo.png';
+import whu from './images/whu.png';
+import bre from './images/bre.png';
+import mci from './images/mci.png';
+import sun from './images/sun.png';
+import lee from './images/lee.png';
+import bur from './images/bur.png';
 
 const HomePage = () => {
     const [user, setUser] = useState(null);
@@ -65,9 +85,17 @@ const HomePage = () => {
 
                         <div className={styles.predictionBody}>
                             <div className={styles.leftSide}> 
-                                <div className={styles.homeSide}/>
+                                <div className={styles.homeSide}>
+                                     <img src={newc} alt="Arsenal Logo"/> 
+                                     <p>Newcastle United</p>
+                                     <div className={styles.percentage}> 33% win chance </div> 
+                                </div>
                                 <div className={styles.centre}>VS</div>
-                                <div className={styles.awaySide}/>
+                                <div className={styles.awaySide}>
+                                     <img src={mci} alt="Arsenal Logo"/> 
+                                     <p>Manchester City</p> 
+                                     <div className={styles.percentage}> 54% win chance </div>                                     
+                                </div>
                             </div>
                             <div className={styles.rightSide}/>
                         </div>
