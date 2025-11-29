@@ -184,7 +184,7 @@ const ChooseTeam = () => {
                         <img src={sun} alt="Sunderland Logo"/>
                         <p>Sunderland AFC</p>
                     </div>
-                    <button onClick={() => handleSubmit('PR2')}>Choose</button>
+                    <button onClick={() => handleSubmit('SUN')}>Choose</button>
                 </div>
                 <div className={styles.buttonContainer}>
                     <div className={styles.teamInfo}>

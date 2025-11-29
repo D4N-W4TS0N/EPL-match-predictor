@@ -40,7 +40,7 @@ with app.app_context():
     # epl.scrapeFixtures()  
 
     forest = predictor.trainModel()
-    preds, homeTeams = predictor.predict(forest)
+    preds, homeTeams, fixtures = predictor.predict(forest)
     finalPreds = predictor.combineHA(preds, homeTeams)
 
 
@@ -88,6 +88,7 @@ def chooseTeam():
 @login_required
 def home():
     global finalPreds
+    global fixtures
     team = current_user.team
     teams = {
         "ARS": "Arsenal",
@@ -116,17 +117,17 @@ def home():
     mask = (finalPreds['Team_x'] == team) | (finalPreds['Team_y'] == team)
     userMatch = finalPreds[mask]
     otherMatches = finalPreds[~mask]
-    finalPreds = pd.concat([userMatch, otherMatches], ignore_index=True)
+    orderedPreds = pd.concat([userMatch, otherMatches], ignore_index=True)
 
-    print(finalPreds)
+    print(orderedPreds)
 
     userData = {
         'email': current_user.email,
         'firstName': current_user.firstName,
         'lastName': current_user.lastName,
         'team': current_user.team,
-        'predictions': finalPreds.to_dict(orient='records')
-
+        'predictions': orderedPreds.to_dict(orient='records'),
+        'fixtures': fixtures.astype(str).to_dict(orient='records')
     }
     return jsonify(userData), 200
 

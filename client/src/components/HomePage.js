@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import { MapPin, Clock, Calendar, User, Database } from "lucide-react";
 import ars from './images/ars.png';
 import avl from './images/avl.png';
@@ -26,6 +26,52 @@ import bur from './images/bur.png';
 const HomePage = () => {
     const [user, setUser] = useState(null);
 
+    const teams = {
+        'Arsenal': ars,
+        'Aston Villa': avl,
+        'Chelsea': che,
+        'Fulham': ful,
+        'Liverpool': liv,
+        'Manchester Utd': mun,
+        'Newcastle Utd': newc,
+        'Tottenham': tot,
+        'Wolves': wol,
+        'Brighton': bha,
+        'Everton': eve,
+        'Bournemouth': bmo,
+        'Crystal Palace': cry,
+        'Nott\'ham Forest': nfo,
+        'West Ham': whu,
+        'Brentford': bre,
+        'Manchester City': mci,
+        'Sunderland': sun,
+        'Leeds': lee,
+        'Burnley': bur,
+    }
+
+    const stadiums = {
+        'Arsenal': 'Emirates Stadium',
+        'Aston Villa': 'Villa Park',
+        'Chelsea': 'Stamford Bridge',
+        'Fulham': 'Craven Cottage',
+        'Liverpool': 'Anfield',
+        'Manchester Utd': 'Old Trafford',
+        'Newcastle Utd': 'St James\' Park',
+        'Tottenham': 'Tottenham Hotspur Stadium',
+        'Wolves': 'Molineux Stadium',
+        'Brighton': 'American Express Stadium',
+        'Everton': 'Hill Dickinson Stadium',
+        'Bournemouth': 'Vitality Stadium',
+        'Crystal Palace': 'Selhurst Park',
+        'Nott\'ham Forest': 'The City Ground',
+        'West Ham': 'London Stadium',
+        'Brentford': 'Gtech Community Stadium',
+        'Manchester City': 'The Etihad Stadium',
+        'Sunderland': 'Stadium of Shite',
+        'Leeds': 'Elland Road',
+        'Burnley': 'Turf Moor',
+    }
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -37,6 +83,8 @@ const HomePage = () => {
             if (response.ok) {
                 const data = await response.json()
                 setUser(data);
+                console.log(data.predictions[0]);
+                console.log(data.fixtures[0])
             } else {
                 console.error('Failed to fetch user data', response);
             }
@@ -71,14 +119,14 @@ const HomePage = () => {
             <div className={styles.content}>
 
                 <div className={styles.featureBox}>
-                    <h1>Predictions for Gameweek 11</h1>
+                    <h1>{user.firstName}'s Predictions for Gameweek 11</h1>
                     <div className={styles.mainPrediction}>
 
                         <div className={styles.predictionHeader}>
                             <div className={styles.information}>
-                                <span className={styles.iconText}> <MapPin size={16} className={styles.icon}/>St James' Park</span>
-                                <span className={styles.iconText}> <Clock size={16} className={styles.icon}/>14:00 GMT</span>
-                                <span className={styles.iconText}> <Calendar size={16} className={styles.icon}/>Sunday 9th November</span>
+                                <span className={styles.iconText}> <MapPin size={16} className={styles.icon}/>{stadiums[user.predictions[0]['Team_x']]}</span>
+                                <span className={styles.iconText}> <Clock size={16} className={styles.icon}/>{user.predictions[0]['Time_x']}</span>
+                                <span className={styles.iconText}> <Calendar size={16} className={styles.icon}/>{user.predictions[0]['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
                             </div>
                             <p>Premier League</p>
                         </div>
@@ -86,15 +134,15 @@ const HomePage = () => {
                         <div className={styles.predictionBody}>
                             <div className={styles.leftSide}> 
                                 <div className={styles.homeSide}>
-                                     <img src={newc} alt="Arsenal Logo"/> 
-                                     <p>Newcastle United</p>
-                                     <div className={styles.percentage}> 33% win chance </div> 
+                                     <img src={teams[user.predictions[0]['Team_x']]} alt="Arsenal Logo"/> 
+                                     <p>{user.predictions[0]['Team_x']}</p>
+                                     <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_x'].toFixed(0)}% win chance </div> 
                                 </div>
                                 <div className={styles.centre}>VS</div>
                                 <div className={styles.awaySide}>
-                                     <img src={mci} alt="Arsenal Logo"/> 
-                                     <p>Manchester City</p> 
-                                     <div className={styles.percentage}> 54% win chance </div>                                     
+                                     <img src={teams[user.predictions[0]['Team_y']]} alt="Arsenal Logo"/> 
+                                     <p>{user.predictions[0]['Team_y']}</p> 
+                                     <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_y'].toFixed(0)}% win chance </div>                                     
                                 </div>
                             </div>
                             <div className={styles.rightSide}/>

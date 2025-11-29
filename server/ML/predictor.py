@@ -107,6 +107,8 @@ def predict(forest):
     dfRollingMatches = dfRolling[dfRolling["Result"].notna()]
     dfRollingFixtures = dfRolling[dfRolling["Result"].isna()]
 
+    exportFixtures = dfRollingFixtures
+
     predictors = predictors + newColumns
 
     predictions = forest.predict(dfRollingFixtures[predictors])
@@ -114,11 +116,11 @@ def predict(forest):
 
     # print(predictions)
     combined = pd.DataFrame(dict(actualValue = dfRollingFixtures["target"], predictedValue = predictions, confidencePercentage = probabilities*100))
-    combined = combined.merge(dfRolling[["Date", "Team", "Opponent"]], left_index=True, right_index=True).drop(columns=["actualValue"])
+    combined = combined.merge(dfRolling[["Time","Date", "Team", "Opponent"]], left_index=True, right_index=True).drop(columns=["actualValue"])
 
     homeTeams = dfRollingFixtures[dfRollingFixtures['Venue']=='Home']['Team']
 
-    return combined, homeTeams
+    return combined, homeTeams, exportFixtures
 
 def combineHA(preds, homeTeams):
     class MissingDict(dict):
