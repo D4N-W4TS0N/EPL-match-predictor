@@ -93,7 +93,7 @@ class DataScraper():
             print(teamData)
 
             allMatches.append(teamData)
-            counter += 2
+            counter += 5
             time.sleep(counter)
 
         matchDF = pd.concat(allMatches)

@@ -155,6 +155,7 @@ html, body {
     margin: 30px 15px 45px 15px;
     color: #4b4a4a;
     font-family: Verdana;
+    padding: 30px 10px;
 }
 
 .homeSide {
@@ -204,8 +205,67 @@ html, body {
 }
 
 .rightSide{
-    width: 50%;
+    width: 40%;
+    height: 80%;
     border-radius: 14px;
+    /* background-color: aqua; */
+    margin: 10px 60px 60px 30px;
+}
+
+.statsTitle {
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.statsSection {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 15px;
+}
+
+.statRow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 5px 15px;
+    font-family: verdana;
+    font-size: 12px;
+
+}
+
+
+.rsHeader {
+    font-size: 18px;
+    margin: 0px 15px;
+    font-family: Verdana;
+    display: flex;
+    height: 10%;
+    /* background-color: aquamarine; */
+}
+
+.statsHeader {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 10px 15px;
+    justify-content: space-between;
+    font-family: verdana;
+}
+
+/* First Column (Everton / Numbers) aligns Left */
+.statsHeader > :nth-child(1), 
+.statRow > :nth-child(1) {
+    text-align: left;
+}
+
+/* Middle Column (Statistic / Label) aligns Center */
+.statsHeader > :nth-child(2), 
+.statRow > :nth-child(2) {
+    text-align: center;
+}
+
+/* Last Column (Newcastle / Numbers) aligns Right */
+.statsHeader > :nth-child(3), 
+.statRow > :nth-child(3) {
+    text-align: right;
 }
 
 .percentage {
@@ -219,4 +279,27 @@ html, body {
     margin: 20px 0px;
     border-radius: 100px;
     font-size: 13px;
+}
+
+.better {
+  background: rgba(0,0,0,0.20);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.worse {
+  margin: 0px 5px;
+}
+
+.valueLeft,
+.valueRight {
+  display: inline-block;
+}
+
+.valueLeft {
+  justify-self: start;
+}
+
+.valueRight {
+  justify-self: end;
 }

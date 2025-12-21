@@ -25,8 +25,11 @@ import bur from './images/bur.png';
 
 const HomePage = () => {
     const [user, setUser] = useState(null);
+    const [homeMainData, setHomeMainData] = useState(null);
+    const [awayMainData, setAwayMainData] = useState(null);
 
-    const teams = {
+
+    const teamsToLogo = {
         'Arsenal': ars,
         'Aston Villa': avl,
         'Chelsea': che,
@@ -45,7 +48,7 @@ const HomePage = () => {
         'Brentford': bre,
         'Manchester City': mci,
         'Sunderland': sun,
-        'Leeds': lee,
+        'Leeds United': lee,
         'Burnley': bur,
     }
 
@@ -72,6 +75,29 @@ const HomePage = () => {
         'Burnley': 'Turf Moor',
     }
 
+    const teamToFixtures = {
+        'Arsenal': 'Arsenal',
+        'Aston Villa': 'Aston Villa',
+        'Chelsea': 'Chelsea',
+        'Fulham': 'Fulham',
+        'Liverpool': 'Liverpool',
+        'Manchester Utd': 'Manchester United',
+        'Newcastle Utd': 'Newcastle United',
+        'Tottenham': 'Tottenham Hotspur',
+        'Wolves': 'Wolverhampton Wanderers',
+        'Brighton': 'Brighton & Hove Albion',
+        'Everton': 'Everton',
+        'Bournemouth': 'Bournemouth',
+        'Crystal Palace': 'Crystal Palace',
+        'Nott\'ham Forest': 'Nottingham Forest',
+        'West Ham': 'West Ham United',
+        'Brentford': 'Brentford',
+        'Manchester City': 'Manchester City',
+        'Sunderland': 'Sunderland',
+        'Leeds United': 'Leeds United',
+        'Burnley': 'Burnley',
+    }
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -84,7 +110,10 @@ const HomePage = () => {
                 const data = await response.json()
                 setUser(data);
                 console.log(data.predictions[0]);
-                console.log(data.fixtures[0])
+                console.log(data.fixtures);
+                setHomeMainData(data.fixtures.find(f => f.Team.trim() === teamToFixtures[data.predictions[0]['Team_x']]));
+                setAwayMainData(data.fixtures.find(f => f.Team.trim() === teamToFixtures[data.predictions[0]['Team_y']]));
+                console.log(homeMainData);
             } else {
                 console.error('Failed to fetch user data', response);
             }
@@ -97,6 +126,29 @@ const HomePage = () => {
         fetchUser();
     }, []);
     if (!user) return <p>Loading...</p>;
+
+    const homeGF = Number(homeMainData.GF_rolling);
+    const awayGF = Number(awayMainData.GF_rolling);
+    const homeGoalsIsBetter = homeGF > awayGF;
+    const homeGA = Number(homeMainData.GA_rolling);
+    const awayGA = Number(awayMainData.GA_rolling);
+    const homeConcededIsBetter = homeGA < awayGA;
+    const homePoss = Number(homeMainData.Poss_rolling);
+    const awayPoss = Number(awayMainData.Poss_rolling);
+    const homePossIsBetter = homePoss > awayPoss;
+    const homeSh = Number(homeMainData.Sh_rolling);
+    const awaySh = Number(awayMainData.Sh_rolling);
+    const homeShIsBetter = homeSh > awaySh;
+    const homeSoT = Number(homeMainData.SoT_rolling);
+    const awaySoT = Number(awayMainData.SoT_rolling);
+    const homeSoTIsBetter = homeSoT > awaySoT;
+    const homeFK = Number(homeMainData.FK_rolling);
+    const awayFK = Number(awayMainData.FK_rolling);
+    const homeFKIsBetter = homeFK > awayFK;
+    const homePK = Number(homeMainData.PK_rolling);
+    const awayPK = Number(awayMainData.PK_rolling);
+    const homePKIsBetter = homePK > awayPK;
+
 
     return (
         <div className={styles.container}>
@@ -134,18 +186,74 @@ const HomePage = () => {
                         <div className={styles.predictionBody}>
                             <div className={styles.leftSide}> 
                                 <div className={styles.homeSide}>
-                                     <img src={teams[user.predictions[0]['Team_x']]} alt="Arsenal Logo"/> 
+                                     <img src={teamsToLogo[user.predictions[0]['Team_x']]} alt="Arsenal Logo"/> 
                                      <p>{user.predictions[0]['Team_x']}</p>
                                      <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_x'].toFixed(0)}% win chance </div> 
                                 </div>
                                 <div className={styles.centre}>VS</div>
                                 <div className={styles.awaySide}>
-                                     <img src={teams[user.predictions[0]['Team_y']]} alt="Arsenal Logo"/> 
+                                     <img src={teamsToLogo[user.predictions[0]['Team_y']]} alt="Arsenal Logo"/> 
                                      <p>{user.predictions[0]['Team_y']}</p> 
                                      <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_y'].toFixed(0)}% win chance </div>                                     
                                 </div>
                             </div>
-                            <div className={styles.rightSide}/>
+                            <div className={styles.rightSide}>
+                                <div className={styles.rsHeader}>Head-to-Head Stats ⚔️</div>
+
+                                <div className={styles.statsHeader}>
+                                    <div className={styles.teamLeft}>
+                                        <img />
+                                        <span>{user.predictions[0]['Team_x']}</span>
+                                    </div>
+                                    <div className={styles.statsTitle}>Statistic</div>
+                                    <div className={styles.teamRight}>
+                                        <span>{user.predictions[0]['Team_y']}</span>
+                                        <img />
+                                    </div>
+                                </div>
+
+                                <div className={styles.statsSection}>
+                                    {/* <h3>Form (Last 5)</h3> */}
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homeGoalsIsBetter ? styles.better : styles.worse}`}>{homeGF.toFixed(1)}</div>                                   
+                                        <div className={styles.statLabel}>Goals For</div>
+                                        <div className={`${styles.valueRight} ${homeGoalsIsBetter ? styles.worse : styles.better}`}>{awayGF.toFixed(1)}</div>  
+                                    </div>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homeConcededIsBetter ? styles.better : styles.worse}`}>{homeGA.toFixed(1)}</div>  
+                                        <div className={styles.statLabel}>Goals Against</div>
+                                        <div className={`${styles.valueRight} ${homeConcededIsBetter ? styles.worse : styles.better}`}>{awayGA.toFixed(1)}</div>  
+                                    </div>
+                                    <p> </p>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homePossIsBetter ? styles.better : styles.worse}`}>{homePoss.toFixed(0)}%</div>  
+                                        <div className={styles.statLabel}>Possession</div>
+                                        <div className={`${styles.valueRight} ${homePossIsBetter ? styles.worse : styles.better}`}>{awayPoss.toFixed(0)}%</div>  
+                                    </div>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homeShIsBetter ? styles.better : styles.worse}`}>{homeSh.toFixed(1)}</div>  
+                                        <div className={styles.statLabel}>Shots</div>
+                                        <div className={`${styles.valueRight} ${homeShIsBetter ? styles.worse : styles.better}`}>{awaySh.toFixed(1)}</div>  
+                                    </div>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homeSoTIsBetter ? styles.better : styles.worse}`}>{homeSoT.toFixed(1)}</div>  
+                                        <div className={styles.statLabel}>Shots on target</div>
+                                        <div className={`${styles.valueRight} ${homeSoTIsBetter ? styles.worse : styles.better}`}>{awaySoT.toFixed(1)}</div>  
+                                    </div>
+                                    <p> </p>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homeFKIsBetter ? styles.better : styles.worse}`}>{homeFK.toFixed(1)}</div>  
+                                        <div className={styles.statLabel}>Free Kicks</div>
+                                        <div className={`${styles.valueRight} ${homeFKIsBetter ? styles.worse : styles.better}`}>{awayFK.toFixed(1)}</div>  
+                                    </div>
+                                    <div className={styles.statRow}>
+                                        <div className={`${styles.valueLeft} ${homePKIsBetter ? styles.better : styles.worse}`}>{homePK.toFixed(1)}</div>  
+                                        <div className={styles.statLabel}>Penalties</div>
+                                        <div className={`${styles.valueRight} ${homePKIsBetter ? styles.worse : styles.better}`}>{awayPK.toFixed(1)}</div>  
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
                     </div>
