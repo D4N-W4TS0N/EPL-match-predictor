@@ -127,6 +127,9 @@ const HomePage = () => {
     }, []);
     if (!user) return <p>Loading...</p>;
 
+    const homeScore = Number(user.predictions[0]['confidencePercentage_x']);
+    const awayScore = Number(user.predictions[0]['confidencePercentage_y']);
+    const homeScoreIsBetter = homeScore > awayScore;
     const homeGF = Number(homeMainData.GF_rolling);
     const awayGF = Number(awayMainData.GF_rolling);
     const homeGoalsIsBetter = homeGF > awayGF;
@@ -188,13 +191,13 @@ const HomePage = () => {
                                 <div className={styles.homeSide}>
                                      <img src={teamsToLogo[user.predictions[0]['Team_x']]} alt="Arsenal Logo"/> 
                                      <p>{user.predictions[0]['Team_x']}</p>
-                                     <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.winner : styles.percentage}`}>{user.predictions[0]['confidencePercentage_x'].toFixed(0)}% win chance </div> 
                                 </div>
                                 <div className={styles.centre}>VS</div>
                                 <div className={styles.awaySide}>
                                      <img src={teamsToLogo[user.predictions[0]['Team_y']]} alt="Arsenal Logo"/> 
                                      <p>{user.predictions[0]['Team_y']}</p> 
-                                     <div className={styles.percentage}> {user.predictions[0]['confidencePercentage_y'].toFixed(0)}% win chance </div>                                     
+                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.percentage : styles.winner}`}>{user.predictions[0]['confidencePercentage_y'].toFixed(0)}% win chance </div> 
                                 </div>
                             </div>
                             <div className={styles.rightSide}>
@@ -241,11 +244,11 @@ const HomePage = () => {
                                         <div className={`${styles.valueRight} ${homeSoTIsBetter ? styles.worse : styles.better}`}>{awaySoT.toFixed(1)}</div>  
                                     </div>
                                     <p> </p>
-                                    <div className={styles.statRow}>
+                                    {/* <div className={styles.statRow}>
                                         <div className={`${styles.valueLeft} ${homeFKIsBetter ? styles.better : styles.worse}`}>{homeFK.toFixed(1)}</div>  
                                         <div className={styles.statLabel}>Free Kicks</div>
                                         <div className={`${styles.valueRight} ${homeFKIsBetter ? styles.worse : styles.better}`}>{awayFK.toFixed(1)}</div>  
-                                    </div>
+                                    </div> */}
                                     <div className={styles.statRow}>
                                         <div className={`${styles.valueLeft} ${homePKIsBetter ? styles.better : styles.worse}`}>{homePK.toFixed(1)}</div>  
                                         <div className={styles.statLabel}>Penalties</div>

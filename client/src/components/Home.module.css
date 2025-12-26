@@ -291,6 +291,18 @@ html, body {
   margin: 0px 5px;
 }
 
+.winner {
+    height: 3vh;
+    width: 8vw;
+    background-color: rgba(0,0,0,0.20);
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    text-align: center; 
+    margin: 20px 0px;
+    border-radius: 100px;
+    font-size: 13px;}
+
 .valueLeft,
 .valueRight {
   display: inline-block;
