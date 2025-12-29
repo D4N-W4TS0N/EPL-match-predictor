@@ -2,6 +2,7 @@ html, body {
     height: auto;
     margin: 0;
     display: flex;
+    /* overflow: hidden; */
     flex-direction: column;
     background-color: #f3f6f9;
 }
@@ -11,6 +12,7 @@ html, body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     margin-top: 0px;
 }
 
@@ -63,11 +65,14 @@ html, body {
 .content {
     display: flex;
     flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;    
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #e6eaf0;
     flex-direction: column;
     margin-top: 0px;
+    padding: 24px 0px;
 }
 
 .content h1 {
@@ -76,15 +81,14 @@ html, body {
 }
 
 .featureBox {
-    height: 70vh;
+    padding: 50px 0px 60px;
     display: flex;
     flex-direction: column;
 }
 
 .mainPrediction {
-    background-color: white;
-    height: 65%;
-    width: 140vh;
+    background-color: rgb(255, 255, 255);
+    width: 160vh;
     margin: 10px 20px;
     border-radius: 14px;
     display: flex;
@@ -140,7 +144,6 @@ html, body {
 }
 
 .predictionBody {
-    height: 90%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -170,14 +173,14 @@ html, body {
 }
 
 .homeSide img {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     margin: 15px 0px;
 }
 
 .awaySide img {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     margin: 15px 0px;
 }
 
@@ -206,7 +209,6 @@ html, body {
 
 .rightSide{
     width: 40%;
-    height: 80%;
     border-radius: 14px;
     /* background-color: aqua; */
     margin: 10px 60px 60px 30px;
@@ -315,3 +317,103 @@ html, body {
 .valueRight {
   justify-self: end;
 }
+
+.otherPredictions {
+    width: 160vh;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.otherPredictions h1 {
+    color: #000000;
+    font-family: Verdana;
+    font-size: 25px;
+    margin: 0px 8px
+}
+
+.tileRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 0px 15px;
+}
+
+.tile {
+    background-color: white;
+    width: 50vh;
+    height: 30vh;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+}
+
+.tile .homeSide {
+    height: 100%;
+    width: 45%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    align-items: center;
+}
+
+.tile .awaySide {
+    height: 100%;
+    width: 45%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    align-items: center;
+
+}
+
+.tile .homeSide img {
+    width: 70px;
+    height: 70px;
+    margin: 15px 0px;
+}
+
+.tile .awaySide img {
+    width: 70px;
+    height: 70px;
+    margin: 15px 0px;
+}
+
+
+.tile .predictionHeader {
+    height: 10%;
+    border-radius: 14px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tile .information {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+    font-size: 14px;
+    color: #4b4a4a;
+    font-family: Verdana;
+    padding: 5px 0px;
+}
+
+.tile .iconText {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 5px;
+    height: 20%;
+}
+
+
+.tile p {
+    font-size: 14px;
+}
+

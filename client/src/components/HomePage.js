@@ -126,9 +126,27 @@ const HomePage = () => {
         fetchUser();
     }, []);
     if (!user) return <p>Loading...</p>;
-
-    const homeScore = Number(user.predictions[0]['confidencePercentage_x']);
-    const awayScore = Number(user.predictions[0]['confidencePercentage_y']);
+    const mainPrediction = user.predictions[0];
+    const pred1 = user.predictions[1];
+    const p1homeBetter = pred1['confidencePercentage_x'] > pred1['confidencePercentage_y'];
+    const pred2 = user.predictions[2];
+    const p2homeBetter = pred2['confidencePercentage_x'] > pred2['confidencePercentage_y'];
+    const pred3 = user.predictions[3];
+    const p3homeBetter = pred3['confidencePercentage_x'] > pred3['confidencePercentage_y'];
+    const pred4 = user.predictions[4];
+    const p4homeBetter = pred4['confidencePercentage_x'] > pred4['confidencePercentage_y'];
+    const pred5 = user.predictions[5];
+    const p5homeBetter = pred5['confidencePercentage_x'] > pred5['confidencePercentage_y'];
+    const pred6 = user.predictions[6];
+    const p6homeBetter = pred6['confidencePercentage_x'] > pred6['confidencePercentage_y'];
+    const pred7 = user.predictions[7];
+    const p7homeBetter = pred7['confidencePercentage_x'] > pred7['confidencePercentage_y'];
+    const pred8 = user.predictions[8]
+    const p8homeBetter = pred8['confidencePercentage_x'] > pred8['confidencePercentage_y'];
+    const pred9 = user.predictions[9]
+    const p9homeBetter = pred9['confidencePercentage_x'] > pred9['confidencePercentage_y'];
+    const homeScore = Number(mainPrediction['confidencePercentage_x']);
+    const awayScore = Number(mainPrediction['confidencePercentage_y']);
     const homeScoreIsBetter = homeScore > awayScore;
     const homeGF = Number(homeMainData.GF_rolling);
     const awayGF = Number(awayMainData.GF_rolling);
@@ -179,9 +197,9 @@ const HomePage = () => {
 
                         <div className={styles.predictionHeader}>
                             <div className={styles.information}>
-                                <span className={styles.iconText}> <MapPin size={16} className={styles.icon}/>{stadiums[user.predictions[0]['Team_x']]}</span>
-                                <span className={styles.iconText}> <Clock size={16} className={styles.icon}/>{user.predictions[0]['Time_x']}</span>
-                                <span className={styles.iconText}> <Calendar size={16} className={styles.icon}/>{user.predictions[0]['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                <span className={styles.iconText}> <MapPin size={16} className={styles.icon}/>{stadiums[mainPrediction['Team_x']]}</span>
+                                <span className={styles.iconText}> <Clock size={16} className={styles.icon}/>{mainPrediction['Time_x']}</span>
+                                <span className={styles.iconText}> <Calendar size={16} className={styles.icon}/>{mainPrediction['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
                             </div>
                             <p>Premier League</p>
                         </div>
@@ -189,15 +207,15 @@ const HomePage = () => {
                         <div className={styles.predictionBody}>
                             <div className={styles.leftSide}> 
                                 <div className={styles.homeSide}>
-                                     <img src={teamsToLogo[user.predictions[0]['Team_x']]} alt="Arsenal Logo"/> 
-                                     <p>{user.predictions[0]['Team_x']}</p>
-                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.winner : styles.percentage}`}>{user.predictions[0]['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                     <img src={teamsToLogo[mainPrediction['Team_x']]} alt="Arsenal Logo"/> 
+                                     <p>{mainPrediction['Team_x']}</p>
+                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.winner : styles.percentage}`}>{mainPrediction['confidencePercentage_x'].toFixed(0)}% win chance </div> 
                                 </div>
                                 <div className={styles.centre}>VS</div>
                                 <div className={styles.awaySide}>
-                                     <img src={teamsToLogo[user.predictions[0]['Team_y']]} alt="Arsenal Logo"/> 
-                                     <p>{user.predictions[0]['Team_y']}</p> 
-                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.percentage : styles.winner}`}>{user.predictions[0]['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                     <img src={teamsToLogo[mainPrediction['Team_y']]} alt="Arsenal Logo"/> 
+                                     <p>{mainPrediction['Team_y']}</p> 
+                                     <div className={`${styles.percentage} ${homeScoreIsBetter ? styles.percentage : styles.winner}`}>{mainPrediction['confidencePercentage_y'].toFixed(0)}% win chance </div> 
                                 </div>
                             </div>
                             <div className={styles.rightSide}>
@@ -263,6 +281,211 @@ const HomePage = () => {
                 </div>
 
                 <div className={styles.otherPredictions}>
+                    <h1>Other Predictions</h1>
+                    <div className={styles.tileRow}>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred1['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred1['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred1['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred1['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred1['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p1homeBetter ? styles.winner : styles.percentage}`}>{pred1['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred1['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred1['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p1homeBetter ? styles.percentage : styles.winner}`}>{pred1['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred2['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred2['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred2['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred2['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred2['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p2homeBetter ? styles.winner : styles.percentage}`}>{pred2['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred2['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred2['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p2homeBetter ? styles.percentage : styles.winner}`}>{pred2['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred3['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred3['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred3['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred3['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred3['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p3homeBetter ? styles.winner : styles.percentage}`}>{pred3['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred3['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred3['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p3homeBetter ? styles.percentage : styles.winner}`}>{pred3['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>          
+                    </div>
+                    <div className={styles.tileRow}>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred4['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred4['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred4['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred4['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred4['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p4homeBetter ? styles.winner : styles.percentage}`}>{pred4['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred4['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred4['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p4homeBetter ? styles.percentage : styles.winner}`}>{pred4['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred5['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred5['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred5['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred5['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred5['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p5homeBetter ? styles.winner : styles.percentage}`}>{pred5['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred5['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred5['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p5homeBetter ? styles.percentage : styles.winner}`}>{pred5['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred6['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred6['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred6['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred6['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred6['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p6homeBetter ? styles.winner : styles.percentage}`}>{pred6['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred6['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred6['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p6homeBetter ? styles.percentage : styles.winner}`}>{pred6['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>          
+                    </div>
+                    <div className={styles.tileRow}>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred7['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred7['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred7['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred7['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred7['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p7homeBetter ? styles.winner : styles.percentage}`}>{pred7['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred7['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred7['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p7homeBetter ? styles.percentage : styles.winner}`}>{pred7['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred8['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred8['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred8['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred8['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred8['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p8homeBetter ? styles.winner : styles.percentage}`}>{pred8['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred8['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred8['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p8homeBetter ? styles.percentage : styles.winner}`}>{pred8['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>
+                        <div className={styles.tile}>
+                            <div className={styles.predictionHeader}>
+                                <div className={styles.information}>
+                                    <span className={styles.iconText}> <MapPin size={12} className={styles.icon}/>{stadiums[pred9['Team_x']]}</span>
+                                    <span className={styles.iconText}> <Clock size={12} className={styles.icon}/>{pred9['Time_x']}</span>
+                                    <span className={styles.iconText}> <Calendar size={12} className={styles.icon}/>{pred9['Date'].replace(",", "").replace(/ \d{2}:\d{2}:\d{2} GMT/, "")}</span>
+                                </div>
+                            </div>
+                            <div className={styles.predictionBody}>
+                                <div className={styles.homeSide}>
+                                    <img src={teamsToLogo[pred9['Team_x']]} alt="Arsenal Logo"/> 
+                                    <p>{pred9['Team_x']}</p>
+                                    <div className={`${styles.percentage} ${p9homeBetter ? styles.winner : styles.percentage}`}>{pred9['confidencePercentage_x'].toFixed(0)}% win chance </div> 
+                                </div>
+                                <div className={styles.centre}>VS</div>
+                                <div className={styles.awaySide}>
+                                    <img src={teamsToLogo[pred9['Team_y']]} alt="Arsenal Logo"/> 
+                                    <p>{pred9['Team_y']}</p> 
+                                    <div className={`${styles.percentage} ${p9homeBetter ? styles.percentage : styles.winner}`}>{pred9['confidencePercentage_y'].toFixed(0)}% win chance </div> 
+                                </div>    
+                            </div>                    
+                        </div>          
+                    </div>
                 </div>
 
             </div>

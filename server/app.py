@@ -35,9 +35,9 @@ class User(db.Model, UserMixin):
 with app.app_context():
     db.create_all() # Create the database tables
 
-    epl = dataScraper.DataScraper()
-    epl.scrapeData()
-    epl.scrapeFixtures()
+    # epl = dataScraper.DataScraper()
+    # epl.scrapeData()
+    # epl.scrapeFixtures()
 
     forest = predictor.trainModel()
     preds, homeTeams, fixtures = predictor.predict(forest)
@@ -160,4 +160,4 @@ def login():
 
 # Run the application
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
