@@ -402,6 +402,7 @@ html, body {
     color: #4b4a4a;
     font-family: Verdana;
     padding: 5px 0px;
+    margin-left: 5px;
 }
 
 .tile .iconText {
