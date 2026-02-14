@@ -53,6 +53,7 @@ def rollingAverage(group, existingColumns, newColumns):
         rollingStats = group[existingColumns].rolling(7, closed='left').mean()
         group[newColumns] = rollingStats
         group = group.dropna(subset=newColumns)
+
         return group
 
 def trainModel():
@@ -69,7 +70,6 @@ def trainModel():
     dfRolling.index = range(dfRolling.shape[0])
 
     predictors = predictors + newColumns
-
 
     train = dfRolling[dfRolling["Date"] < "2025-03-28"]
     test = dfRolling[dfRolling["Date"] > "2025-03-28"]
@@ -123,6 +123,8 @@ def predict(forest):
     return combined, homeTeams, exportFixtures
 
 def combineHA(preds, homeTeams):
+    print(preds)
+
     class MissingDict(dict):
         __missing__ = lambda self, key: key
 
@@ -152,6 +154,9 @@ def combineHA(preds, homeTeams):
     # print(away)
 
     finalPreds = home.merge(away, left_on=["Date", "Team"], right_on=["Date", "Opponent"])
+
+    print(finalPreds)
+
     return finalPreds
 
 # epl = DataScraper()

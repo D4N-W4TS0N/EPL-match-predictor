@@ -5,6 +5,7 @@ html, body {
     flex-direction: column; /* Children displayed vertically not horizontally */
     align-items: center;
     background-color: #e6eaf0;
+    overflow-y: scroll;
 }
 
 .container {
@@ -23,19 +24,20 @@ html, body {
     flex-direction: column;
     justify-content: left;
     align-items: flex-start;
-    height: 10vh;
+    height: auto;
     width: 60%;
+    max-width: 900px;
     color: rgb(0, 0, 0);
     margin-bottom: 40px;
 }
 
 .header h1 {
-    font-size: 40px;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
     margin-bottom: 5px;
 }
 
 .header h2 {
-    font-size: 15px;
+    font-size: clamp(0.9rem, 1vw, 1rem);
     font-family: verdana;
     font-weight: 100;
     margin-top: 0px;
@@ -56,13 +58,15 @@ html, body {
     align-items: center;
     justify-content: space-between;
     width: 60%;
+    max-width: 900px;
+    min-width: 350px;
     height: auto;
     margin-bottom: 10px;
     background-color: #ffffff;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     text-align: center;
-    padding: 5px;
+    padding: 10px 5px;
 }
 
 .teamInfo {
@@ -74,7 +78,7 @@ html, body {
 .buttonContainer p {
     font-family: Verdana;
     margin: 10px 15px 10px 10px;
-    font-size: 20px;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
 }
 
 .buttonContainer img {
@@ -83,14 +87,17 @@ html, body {
 }
 
 .buttonContainer button {
-    height: 3vh;
+    height: auto;
+    padding: 8px 16px;
     background-color: rgb(0, 0, 0);
     color: #f9f9f9;
-    width: 10%;
+    width: auto;
+    min-width: 100px;
     margin: 5px;
     border-radius: 4px;
     font-weight: bold;
-    font: verdana;
+    font-family: verdana;
+    border: none;
 }
 
 .buttonContainer button:hover {
@@ -100,7 +107,19 @@ html, body {
 
 .errorMessage {
     color: red;
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 1vw, 1rem);
     margin: 0px 0px 15px 5px;
     font-family: Verdana;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px 0px;
+    }
+
+    .header {
+        width: 70%;
+    }
+};
+    

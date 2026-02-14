@@ -4,65 +4,75 @@ html, body {
     display: flex;
     flex-direction: column;
     background-color: #e6eaf0;
+    overflow: auto;
 }
 
 .container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 24px 0px;
 }
 
 .registrationContainer h1{
-    font-size: 40px;
+    font-size: clamp(1.9rem, 2.5vw, 2.4rem);
     font-family: Verdana;
     font-weight: 100;
     margin-bottom: 0px;
 }
 
 .registrationContainer h2{
-    font-size: 15px;
+    font-size: clamp(1.0rem, 1.2vw, 1.1rem);
     font-family: Verdana;
     font-weight: 100;
     margin-bottom: 40px;
 }
 
 .sidebar h1{
-    font-size: 60px;
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
     font-family: Verdana;
     font-weight: 100;
 }
 
 .sidebar p {
-    margin: 150px 0px 0px 0px;
+    /* margin: 150px 0px 0px 0px; */
     font-family: Verdana;
     font-weight: 100;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
 }
 
 .screen {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    height: 80vh;
-    width: 120vh;
+    align-items: stretch;
+    height: auto;
+    min-height: 600px;
+    width: min(1000px, 92vh);
     box-sizing: border-box;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .sidebar {
     background-color: #101827;
     clear: none;
-    height: 100%;
+    height: auto;
+    min-height: 300px;
     width: 50%;
     box-sizing: border-box;
     border-radius: 0px 5px 5px 0px;
     color: #ffffff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 24px;
     text-align: center;
-    padding: 60px;
+    padding: 40px;
     align-items: center;
 }
 
@@ -76,6 +86,7 @@ html, body {
     border-radius: 5px 0px 0px 5px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 	}
 
 .formGroup input {
@@ -85,7 +96,7 @@ html, body {
     border-radius: 10px;
     padding: 0.75rem;
     border: 2px solid #a9a8a8;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1.1vw, 1.25rem);
     transition: border-color 0.3s ease;
     margin: 10px 0px 20px 0px;
 }
@@ -105,7 +116,7 @@ html, body {
     border-radius: 10px;
     padding: 0.75rem;
     border: 2px solid #a9a8a8;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1.1vw, 1.25rem);
     transition: border-color 0.3s ease;
 }
 
@@ -136,19 +147,30 @@ html, body {
     font-family: Verdana;
 }
 
+.formGroup label {
+    margin: 0px 0px 0px 5px;
+    font-size: clamp(1.1rem, 1vw, 1rem);
+}
+
+.nameFormGroup label {
+    margin: 0px 0px 0px 5px;
+    font-size: clamp(1.1rem, 1vw, 1rem);
+}
+
 .signUpButton{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 13vw;
     min-height: 70px;
+    max-width: 90;
     margin: 30px 0px;
     border-radius: 10px;
     border-width: 0px;
     border-color: #078e39;
     background-color: #101827;
     color: #ffffff;
-    font-size: 25px;
+    font-size: clamp(1.4rem, 1.2vw, 1.6rem);
     text-decoration: none;
 }
 
@@ -163,13 +185,14 @@ html, body {
 }
 
 .loginButton{
-    width: 17vw;
+    width: 240px;
+    max-width: 90%;
     min-height: 50px;
     margin: 30px 0px 50px 0px;
     border-radius: 10px;
     background-color: #f9f9f9;
     color: rgb(22, 21, 21);
-    font-size: 25px;
+    font-size: clamp(1.4rem, 1.2vw, 1.6rem);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -185,4 +208,66 @@ html, body {
 .buttonContainer{
     display: flex;
     justify-content: center; 
+}
+
+@media (max-width: 768px) {
+    html, body {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .container {
+        height: 100dvh;
+        padding: 10px 10px 50px;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .screen {
+        height: 97%;
+        width: 98%;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .registrationContainer, .sidebar {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .registrationContainer{
+        flex: 1.5;
+        height: 50%;
+        padding: 20px 25px 45px;
+        border-radius: 8px 8px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 0px;
+    }
+
+    .sidebar {
+        flex: 1;
+        height: 40%;
+        border-radius: 0px 0px 8px 8px;
+        padding-bottom: 25px
+    }
+
+    .signUpButton, .loginButton {
+        width: 100%;
+        max-width: none;
+        margin: 24px 0px;
+        height: 10%;
+    }
+
+    .registrationContainer h1{
+        margin: 0px;
+    }
+
+    .registrationContainer h2{
+        margin: 14px 0px;
+    }
 }

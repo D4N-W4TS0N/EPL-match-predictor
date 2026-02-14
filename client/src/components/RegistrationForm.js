@@ -94,7 +94,7 @@ const RegistrationForm = () => {
                 </form>
             </div>
             <div className={styles.sidebar}>
-                <h1>Welcome!</h1>
+                <h1>Got an account?</h1>
                 <p>Already have an account? Login to see your team's predictions and statistics for the upcoming gameweek.</p>
                 <Link to={'/login'} className={styles.loginButton}>Login</Link>
             </div>
