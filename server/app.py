@@ -7,6 +7,13 @@ import pandas as pd
 
 from ML import predictor, dataScraper
 
+
+"""
+WHEN VSCODE RESTARTS RESTART ENV: source venv/bin/activate
+"""
+
+
+
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=["http://localhost:3000", "http://127.0.0.1:3000"])
 
@@ -131,6 +138,10 @@ def home():
     }
     return jsonify(userData), 200
 
+
+@app.route('/')
+def test_home():
+    return "<h1>The server is alive!</h1>"
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():

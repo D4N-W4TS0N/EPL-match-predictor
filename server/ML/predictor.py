@@ -67,6 +67,7 @@ def trainModel():
 
     dfRolling = df.groupby('Team').apply(lambda eachTeam: rollingAverage(eachTeam, existingColumns, newColumns))
     dfRolling = dfRolling.droplevel('Team')
+    print(dfRolling.columns)
     dfRolling.index = range(dfRolling.shape[0])
 
     predictors = predictors + newColumns

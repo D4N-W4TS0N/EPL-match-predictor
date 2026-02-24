@@ -1,7 +1,4 @@
 ,Date,Time,Comp,Round,Day,Venue,Result,GF,GA,Opponent,xG,xGA,Poss,Attendance,Captain,Formation,Opp Formation,Referee,Match Report,Notes,Season,Team
-38,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Home,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
-39,2026-02-12,20:00,Premier League,Matchweek 26,Thu,Away,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
-40,2026-02-22,16:30,Premier League,Matchweek 27,Sun,Away,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
 41,2026-03-01,16:30,Premier League,Matchweek 28,Sun,Home,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
 42,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
 43,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
@@ -13,9 +10,6 @@
 49,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
 50,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
 51,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Arsenal 
-38,2026-02-08,16:30,Premier League,Matchweek 25,Sun,Away,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
-39,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Home,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
-40,2026-02-21,12:30,Premier League,Matchweek 27,Sat,Home,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
 41,2026-02-28,17:30,Premier League,Matchweek 28,Sat,Away,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
 42,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
 43,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
@@ -27,9 +21,6 @@
 49,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
 50,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
 51,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Manchester City 
-34,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Away,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
-35,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Home,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
-36,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Home,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
 37,2026-02-27,20:00,Premier League,Matchweek 28,Fri,Away,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
 38,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
 39,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
@@ -41,9 +32,6 @@
 45,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
 46,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
 47,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Aston Villa 
-36,2026-02-08,16:30,Premier League,Matchweek 25,Sun,Home,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
-37,2026-02-11,20:15,Premier League,Matchweek 26,Wed,Away,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
-38,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Away,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
 39,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Home,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
 40,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
 41,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
@@ -55,9 +43,6 @@
 47,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
 48,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
 49,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Liverpool 
-38,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Away,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
-39,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Home,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
-40,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Home,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
 41,2026-03-01,16:30,Premier League,Matchweek 28,Sun,Away,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
 42,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
 43,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
@@ -69,9 +54,6 @@
 49,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
 50,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
 51,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Chelsea 
-26,2026-02-07,12:30,Premier League,Matchweek 25,Sat,Home,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
-27,2026-02-10,20:15,Premier League,Matchweek 26,Tue,Away,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
-28,2026-02-23,20:00,Premier League,Matchweek 27,Mon,Away,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
 29,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Home,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
 30,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
 31,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
@@ -83,9 +65,6 @@
 37,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
 38,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
 39,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Manchester United 
-26,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Away,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
-27,2026-02-11,20:15,Premier League,Matchweek 26,Wed,Home,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
-28,2026-02-22,14:00,Premier League,Matchweek 27,Sun,Home,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
 29,2026-02-28,12:30,Premier League,Matchweek 28,Sat,Away,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
 30,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
 31,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
@@ -97,9 +76,6 @@
 37,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
 38,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
 39,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Sunderland 
-29,2026-02-07,17:30,Premier League,Matchweek 25,Sat,Away,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
-30,2026-02-12,20:00,Premier League,Matchweek 26,Thu,Home,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
-31,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Home,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
 32,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Away,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
 33,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
 34,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
@@ -111,9 +87,6 @@
 40,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
 41,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
 42,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Brentford 
-37,2026-02-08,14:00,Premier League,Matchweek 25,Sun,Away,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
-38,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Home,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
-39,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Home,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
 40,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Away,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
 41,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
 42,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
@@ -125,9 +98,6 @@
 48,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
 49,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
 50,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Crystal Palace 
-29,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Home,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
-30,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Away,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
-31,2026-02-22,14:00,Premier League,Matchweek 27,Sun,Away,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
 32,2026-03-01,14:00,Premier League,Matchweek 28,Sun,Home,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
 33,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
 34,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
@@ -139,9 +109,6 @@
 40,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
 41,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
 42,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Fulham 
-36,2026-02-07,12:30,Premier League,Matchweek 25,Sat,Away,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
-37,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Home,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
-38,2026-02-22,16:30,Premier League,Matchweek 27,Sun,Home,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
 39,2026-03-01,14:00,Premier League,Matchweek 28,Sun,Away,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
 40,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
 41,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
@@ -153,9 +120,6 @@
 47,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
 48,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
 49,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Tottenham Hotspur 
-27,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Away,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Everton 
-28,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Home,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Everton 
-29,2026-02-23,20:00,Premier League,Matchweek 27,Mon,Home,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Everton 
 30,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Away,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Everton 
 31,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Everton 
 32,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Everton 
@@ -167,9 +131,6 @@
 38,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Everton 
 39,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Everton 
 40,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Everton 
-28,2026-02-08,14:00,Premier League,Matchweek 25,Sun,Home,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
-29,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Away,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
-30,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Away,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
 31,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Home,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
 32,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
 33,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
@@ -181,9 +142,6 @@
 39,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
 40,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
 41,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Brighton and Hove Albion 
-38,2026-02-07,17:30,Premier League,Matchweek 25,Sat,Home,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
-39,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Away,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
-40,2026-02-21,12:30,Premier League,Matchweek 27,Sat,Away,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
 41,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Home,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
 42,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
 43,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
@@ -195,9 +153,6 @@
 49,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
 50,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
 51,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Newcastle United 
-26,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Home,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
-27,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Away,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
-28,2026-02-21,17:30,Premier League,Matchweek 27,Sat,Away,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
 29,2026-02-28,12:30,Premier League,Matchweek 28,Sat,Home,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
 30,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
 31,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
@@ -209,9 +164,6 @@
 37,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
 38,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
 39,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Bournemouth 
-26,2026-02-06,20:00,Premier League,Matchweek 25,Fri,Home,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
-27,2026-02-10,19:30,Premier League,Matchweek 26,Tue,Away,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
-28,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Away,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
 29,2026-02-28,17:30,Premier League,Matchweek 28,Sat,Home,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
 30,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Sunderland,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
 31,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
@@ -223,9 +175,6 @@
 37,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Away,,,,Tottenham,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
 38,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Home,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
 39,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Away,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Leeds United 
-34,2026-02-06,20:00,Premier League,Matchweek 25,Fri,Away,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
-35,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Home,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
-36,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Home,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
 37,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Away,,,,Brighton,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
 38,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
 39,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
@@ -237,9 +186,6 @@
 45,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
 46,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
 47,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Nottingham Forest 
-26,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Away,,,,Burnley,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
-27,2026-02-10,20:15,Premier League,Matchweek 26,Tue,Home,,,,Manchester Utd,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
-28,2026-02-21,17:30,Premier League,Matchweek 27,Sat,Home,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
 29,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Away,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
 30,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Fulham,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
 31,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Manchester City,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
@@ -251,9 +197,6 @@
 37,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
 38,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Newcastle Utd,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
 39,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Leeds United,,,,,,,,,Head-to-Head,,2025-2026,West Ham United 
-27,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Home,,,,West Ham,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
-28,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Away,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
-29,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Away,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
 30,2026-02-28,15:00,Premier League,Matchweek 28,Sat,Home,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
 31,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Away,,,,Everton,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
 32,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Home,,,,Bournemouth,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
@@ -265,9 +208,6 @@
 38,2026-05-09,15:00,Premier League,Matchweek 36,Sat,Home,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
 39,2026-05-17,15:00,Premier League,Matchweek 37,Sun,Away,,,,Arsenal,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
 40,2026-05-24,16:00,Premier League,Matchweek 38,Sun,Home,,,,Wolves,,,,,,,,,Head-to-Head,,2025-2026,Burnley 
-28,2026-02-07,15:00,Premier League,Matchweek 25,Sat,Home,,,,Chelsea,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 
-29,2026-02-11,19:30,Premier League,Matchweek 26,Wed,Away,,,,Nott'ham Forest,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 
-30,2026-02-21,15:00,Premier League,Matchweek 27,Sat,Away,,,,Crystal Palace,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 
 31,2026-02-27,20:00,Premier League,Matchweek 28,Fri,Home,,,,Aston Villa,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 
 32,2026-03-04,20:00,Premier League,Matchweek 29,Wed,Home,,,,Liverpool,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 
 33,2026-03-14,15:00,Premier League,Matchweek 30,Sat,Away,,,,Brentford,,,,,,,,,Head-to-Head,,2025-2026,Wolverhampton Wanderers 

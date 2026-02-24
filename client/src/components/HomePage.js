@@ -70,7 +70,7 @@ const HomePage = () => {
         'West Ham': 'London Stadium',
         'Brentford': 'Gtech Community Stadium',
         'Manchester City': 'The Etihad Stadium',
-        'Sunderland': 'Stadium of Shite',
+        'Sunderland': 'Stadium of Light',
         'Leeds': 'Elland Road',
         'Burnley': 'Turf Moor',
     }
@@ -180,12 +180,12 @@ const HomePage = () => {
                 </a>
 
                 <nav className={styles.nav}>
-                    <a href="#" className={styles.navButton}>
+                    {/* <a href="#" className={styles.navButton}>
                         <Database size={16} className={styles.icon}/>Data
-                    </a>
-                    <a href="#" className={styles.navButton}>
-                        <User size={16} className={styles.icon}/>Profile
-                    </a>
+                    </a> */}
+                    <Link to={'/login'} className={styles.navButton}>
+                        <User size={16} className={styles.icon}/>Sign out
+                    </Link>
                 </nav>
                 
             </div>
